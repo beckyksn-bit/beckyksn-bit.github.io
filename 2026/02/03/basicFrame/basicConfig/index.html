@@ -4,14 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>Tag: Driver | Hexo</title>
+  <title>CubeMX结合keil使用的基础配置 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/Driver/index.html">
+  <meta name="description" content="CubeMX结合Keil使用的基础配置时钟配置：input frequency–晶振的频率24Mhz(蓝桥杯嵌入式板子)  HSE-PLLCLK-APB1、APB2根据题目设置SYS配置：蓝桥杯的不用设置，其余情况根据下载器的协议选择NVIC配置：System tick timer 优先级设置为0工程的配置：固件包选择GW1.4.0版本keil的配置：菱形取消勾选；target&#x2F;微库√；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CubeMX结合keil使用的基础配置">
+<meta property="og:url" content="http://example.com/2026/02/03/basicFrame/basicConfig/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CubeMX结合Keil使用的基础配置时钟配置：input frequency–晶振的频率24Mhz(蓝桥杯嵌入式板子)  HSE-PLLCLK-APB1、APB2根据题目设置SYS配置：蓝桥杯的不用设置，其余情况根据下载器的协议选择NVIC配置：System tick timer 优先级设置为0工程的配置：固件包选择GW1.4.0版本keil的配置：菱形取消勾选；target&#x2F;微库√；">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-03T05:01:00.000Z">
+<meta property="article:modified_time" content="2026-02-08T08:14:17.012Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Driver">
+<meta property="article:tag" content="基础知识">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -69,77 +75,72 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2026" class="archive-year">2026</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/08/small%20how/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">Feb 8</time>
+        <section id="main"><article id="post-basicFrame/basicConfig" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/03/basicFrame/basicConfig/" class="article-date">
+  <time class="dt-published" datetime="2026-02-03T05:01:00.000Z" itemprop="datePublished">2026-02-03</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/stm32%E5%AD%A6%E4%B9%A0/">stm32学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/08/small%20how/">文件开头</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      CubeMX结合keil使用的基础配置
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/08/basicFrame/comBasic/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">Feb 8</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/08/basicFrame/comBasic/">计算机硬件基础</a>
-    </h1>
-  
+        <p>CubeMX结合Keil使用的基础配置<br>时钟配置：<br>input frequency–晶振的频率24Mhz(蓝桥杯嵌入式板子)  HSE-PLLCLK-APB1、APB2根据题目设置<br>SYS配置：<br>蓝桥杯的不用设置，其余情况根据下载器的协议选择<br>NVIC配置：<br>System tick timer 优先级设置为0<br>工程的配置：<br>固件包选择GW1.4.0版本<br>keil的配置：<br>菱形取消勾选；target&#x2F;微库√；C&#x2F;C++&#x2F;优化等级设0； Debug&#x2F;setting&#x2F;trace-flash download</p>
+<p>.mxproject文件包含项目的元数据和配置<br>core目录包含核心代码：主程序、系统初始化（时钟、外设）、中断服务例程<br>Driver目录包含设备驱动程序，通常包含外设的初始化和控制代码（GPIO.UART.I2C等外设的控制接口），设备抽象层（HAL&#x2F;LL库）<br>MDK-ARM目录用于存放ARM MDK集成开发环境的相关环境<br>user存放用户自定义的代码目录<br>.ioc文件是一个I&#x2F;O配置文件，通常用于描述控制器的引脚和外设配置</p>
+<p>新建system.c&#x2F;.h<br>system.c：<br>#include “system.h” （ #include &lt;&gt;：用于引入系统 &#x2F; 标准库头文件；#include “”：用于引入用户自定义头件）<br>system.h的预编译：<br>#ifndef __SYSTEM_H<br>#define __SYSTEM_H</p>
+<p>#endif</p>
+<p>新建bsp_system.h<br>bsp_system.h存放该工程所有的公共变量，结构体，枚举等；以及所有需要链接的到的库以及所有.h文件；<br>各个子文件中只需要包含#include “bsp_system.h”</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/03/basicFrame/basicConfig/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-03T05:01:00.000Z" itemprop="datePublished">Feb 3</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/03/basicFrame/basicConfig/">CubeMX结合keil使用的基础配置</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/03/basicFrame/basicConfig/" data-id="cuidcy63S6VXFEgV1Ps9lDrdP" data-title="CubeMX结合keil使用的基础配置" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">基础知识</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/02/08/basicFrame/taskSheduler/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          任务调度器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/01/31/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>
