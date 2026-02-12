@@ -6,13 +6,15 @@
   
   <title>任务调度器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
+  <meta name="description" content="#include “sheduler.h” void led_proc(void){	}&#x2F;&#x2F;task功能实现 typedef struct{	void (*task_func)(void);	uint32_t rate_ms;	uint32_t last_run;}task_t;&#x2F;&#x2F;定义task结构体类型，包含task功能&#x2F;周期&#x2F;last">
+<meta property="og:type" content="article">
 <meta property="og:title" content="任务调度器">
 <meta property="og:url" content="http://example.com/2026/02/08/basicFrame/taskSheduler/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#include “sheduler.h” void led_proc(void){	}&#x2F;&#x2F;task功能实现 typedef struct{	void (*task_func)(void);	uint32_t rate_ms;	uint32_t last_run;}task_t;&#x2F;&#x2F;定义task结构体类型，包含task功能&#x2F;周期&#x2F;last">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-02-08T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-08T08:14:26.611Z">
+<meta property="article:modified_time" content="2026-02-08T12:13:55.076Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="sheduler">
 <meta property="article:tag" content="stm32">
@@ -99,11 +101,18 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>#include “sheduler.h”</p>
+<p>void led_proc(void)<br>{<br>	<br>}&#x2F;&#x2F;task功能实现</p>
+<p>typedef struct<br>{<br>	void (*task_func)(void);<br>	uint32_t rate_ms;<br>	uint32_t last_run;<br>}task_t;&#x2F;&#x2F;定义task结构体类型，包含task功能&#x2F;周期&#x2F;last_run时间</p>
+<p>static task_t sheduler_task[]&#x3D;<br>{<br>	{led_proc,1,0}<br>	<br>};&#x2F;&#x2F;定义task结构体数组</p>
+<p>uint8_t task_num;</p>
+<p>void sheduler_init(void)<br>{<br>	task_num&#x3D;sizeof(sheduler_task)&#x2F;sizeof(task_t);<br>} </p>
+<p>void sheduler_run(void)<br>{<br>	for(uint8_t i&#x3D;0;i&lt;task_num;i++)<br>	{<br>		uint32_t now_time&#x3D;HAL_GetTick();<br>		if(now_time&gt;&#x3D;sheduler_task[i].rate_ms+sheduler_task[i].last_run)<br>		{<br>			sheduler_task[i].last_run&#x3D;now_time;<br>			sheduler_task[i].task_func();<br>		}<br>	}<br>}</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/basicFrame/taskSheduler/" data-id="cuidFQ5cCoqSSSmtqcsH6eW8S" data-title="任务调度器" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/08/basicFrame/taskSheduler/" data-id="cuid8E_TNDxRrJFDbOpTlwRWo" data-title="任务调度器" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -115,19 +124,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2026/02/08/periphExtd/led/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2026/02/08/basicFrame/nomenclature/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          文件开头
+          编程语言中的命名规则
         
       </div>
     </a>
   
   
-    <a href="/2026/02/08/basicFrame/periTheory/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">单片机寄存器</div>
+      <div class="article-nav-title">文件开头</div>
     </a>
   
 </nav>
@@ -154,7 +163,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ODR/" rel="tag">ODR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog%E6%A0%BC%E5%BC%8F/" rel="tag">blog格式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sheduler/" rel="tag">sheduler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/" rel="tag">命名规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">基础知识</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ODR/" rel="tag">ODR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog%E6%A0%BC%E5%BC%8F/" rel="tag">blog格式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sheduler/" rel="tag">sheduler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/" rel="tag">命名规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%BB%A3%E7%A0%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">嵌入式代码基础知识</a></li></ul>
     </div>
   </div>
 
@@ -164,7 +173,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Driver/" style="font-size: 20px;">Driver</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/ODR/" style="font-size: 10px;">ODR</a> <a href="/tags/blog%E6%A0%BC%E5%BC%8F/" style="font-size: 13.33px;">blog格式</a> <a href="/tags/sheduler/" style="font-size: 10px;">sheduler</a> <a href="/tags/stm32/" style="font-size: 16.67px;">stm32</a> <a href="/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/" style="font-size: 10px;">命名规则</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">基础知识</a>
+      <a href="/tags/Driver/" style="font-size: 20px;">Driver</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/ODR/" style="font-size: 10px;">ODR</a> <a href="/tags/blog%E6%A0%BC%E5%BC%8F/" style="font-size: 10px;">blog格式</a> <a href="/tags/sheduler/" style="font-size: 10px;">sheduler</a> <a href="/tags/stm32/" style="font-size: 15px;">stm32</a> <a href="/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/" style="font-size: 10px;">命名规则</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">基础知识</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%BB%A3%E7%A0%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">嵌入式代码基础知识</a>
     </div>
   </div>
 
@@ -173,7 +182,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li></ul>
     </div>
   </div>
 
@@ -186,7 +195,7 @@
       <ul>
         
           <li>
-            <a href="/2026/02/08/small%20how/">文件开头</a>
+            <a href="/2026/02/10/periphExtd/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%BB%A3%E7%A0%81%E7%9F%A5%E8%AF%86%E7%82%B9%E5%90%88%E9%9B%86/">嵌入式只是盲点合集</a>
           </li>
         
           <li>
@@ -198,11 +207,11 @@
           </li>
         
           <li>
-            <a href="/2026/02/08/periphExtd/led/">文件开头</a>
+            <a href="/2026/02/08/basicFrame/taskSheduler/">任务调度器</a>
           </li>
         
           <li>
-            <a href="/2026/02/08/basicFrame/taskSheduler/">任务调度器</a>
+            <a href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/">文件开头</a>
           </li>
         
       </ul>
