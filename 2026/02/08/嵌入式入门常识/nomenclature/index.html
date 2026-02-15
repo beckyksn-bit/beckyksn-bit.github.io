@@ -4,14 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>Tag: Linux | Hexo</title>
+  <title>编程语言中的命名规则 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/Linux/index.html">
+  <meta name="description" content="一、驼峰明明法小驼峰命名法格式：第一个单词首字母小写，后续单词首字母大写，无下划线。eg:lowerCamelCase适用范围：适用场景：绝大多数编程语言中的变量、函数 &#x2F; 方法、对象属性  大驼峰命名法格式：每个单词的首字母都大写，无下划线，也叫帕斯卡命名法。eg:UpperCamelCase &#x2F; PascalCase适用范围：适用场景：类、接口、结构体、枚举、全局常量（部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编程语言中的命名规则">
+<meta property="og:url" content="http://example.com/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/nomenclature/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、驼峰明明法小驼峰命名法格式：第一个单词首字母小写，后续单词首字母大写，无下划线。eg:lowerCamelCase适用范围：适用场景：绝大多数编程语言中的变量、函数 &#x2F; 方法、对象属性  大驼峰命名法格式：每个单词的首字母都大写，无下划线，也叫帕斯卡命名法。eg:UpperCamelCase &#x2F; PascalCase适用范围：适用场景：类、接口、结构体、枚举、全局常量（部分">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-08T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-08T08:14:22.305Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="stm32">
+<meta property="article:tag" content="命名规则">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -69,39 +75,72 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2026" class="archive-year">2026</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">Feb 8</time>
+        <section id="main"><article id="post-嵌入式入门常识/nomenclature" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/nomenclature/" class="article-date">
+  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">2026-02-08</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/">计算机硬件基础</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      编程语言中的命名规则
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一、驼峰明明法<br>小驼峰命名法<br>格式：第一个单词首字母小写，后续单词首字母大写，无下划线。<br>eg:lowerCamelCase<br>适用范围：适用场景：绝大多数编程语言中的变量、函数 &#x2F; 方法、对象属性</p>
+<p> 大驼峰命名法<br>格式：每个单词的首字母都大写，无下划线，也叫帕斯卡命名法。<br>eg:UpperCamelCase &#x2F; PascalCase<br>适用范围：适用场景：类、接口、结构体、枚举、全局常量（部分语言），是面向对象编程中的核心命名规范。</p>
+<p>二、 常量命名法<br>这是下划线命名法的变种，也叫全大写下划线命名法，是常量的专属命名规范。<br>格式：所有字母大写 + 单词之间用 _ 连接。<br>eg:const MAX_RETRY_COUNT &#x3D; 3;<br>适用范围：适用场景：所有编程语言中的常量（包括全局常量、枚举值、配置项中的固定值）。</p>
+<p>三、 下划线命名法<br>下划线命名法的特点是所有字母小写，单词之间用下划线 _ 分隔，风格简洁直观，不易出错。<br>eg:columns: user_id, user_name, create_time，system_init;<br>适用范围：函数名，复合变量名。</p>
+<p>四、 连字符命名法<br>连字符命名法的特点是所有字母小写，单词之间用连字符 - 分隔，也叫短横线命名法。<br>格式：全小写 + 单词之间用 - 连接。<br>eg:user-info-title {<br>    font-size: 18px;<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/nomenclature/" data-id="cuidd9i0maTIzrXquAMPzZKoY" data-title="编程语言中的命名规则" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/" rel="tag">命名规则</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          计算机硬件基础
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/periTheory/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">单片机寄存器</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>

@@ -4,14 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>Tag: Linux | Hexo</title>
+  <title>scheduler.h | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/Linux/index.html">
+  <meta name="description" content="#include “scheduler.h” typedef struct{  void (task_func*)(void);  uint32_t rate_ms;  uint32_t last_run;}task_t; static task_t task_scheduler[]&#x3D;       &#x2F;&#x2F;static修饰函数全局数组、全局变量时，会将其作用域从所有.c文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scheduler.h">
+<meta property="og:url" content="http://example.com/2026/02/12/LQcode/04scheduler/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#include “scheduler.h” typedef struct{  void (task_func*)(void);  uint32_t rate_ms;  uint32_t last_run;}task_t; static task_t task_scheduler[]&#x3D;       &#x2F;&#x2F;static修饰函数全局数组、全局变量时，会将其作用域从所有.c文">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-12T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-15T00:24:17.245Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="代码模板">
+<meta property="article:tag" content="蓝桥杯嵌入式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -69,39 +75,74 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2026" class="archive-year">2026</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">Feb 8</time>
+        <section id="main"><article id="post-LQcode/04scheduler" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/12/LQcode/04scheduler/" class="article-date">
+  <time class="dt-published" datetime="2026-02-12T02:00:00.000Z" itemprop="datePublished">2026-02-12</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/">计算机硬件基础</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      scheduler.h
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#include “scheduler.h”</p>
+<p>typedef struct{<br>  void (task_func*)(void);<br>  uint32_t rate_ms;<br>  uint32_t last_run;<br>}task_t;</p>
+<p>static task_t task_scheduler[]&#x3D;       &#x2F;&#x2F;static修饰函数全局数组、全局变量时，会将其作用域从所有.c文件,限制为仅当前.c文件可见                  &#x2F;&#x2F;static修饰局部变量时，变量值初始化一次<br>{</p>
+<p>}</p>
+<p>static uint8_t task_num;<br>scheduler_init(){<br>  task_num&#x3D;sizeof(task_scheduler)&#x2F;sizeof(task_t);<br>}</p>
+<p>sheduler_run(){<br>  for(uint8_t i&#x3D;0;i&lt;task_num;i++){<br>    uint32_t now_time&#x3D;HAL_GetTick();<br>    if(now_time&gt;&#x3D;task_scheduler[i].rate_ms+task_scheduler[i].last_run){<br>      task_scheduler[i].last_run&#x3D;uwTick;<br>      task_scheduler[i].task_func();<br>    }<br>  }<br>}</p>
+<p>&#x2F;*main函数中：<br>sheduler_init();<br>*&#x2F;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/12/LQcode/04scheduler/" data-id="cuidWoJ7LNhEWfbTJ4eunqXnC" data-title="scheduler.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/02/12/LQcode/02bsp_system/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          bsp_system.h
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/02/12/LQcode/05led_user/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">led_user.h</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>

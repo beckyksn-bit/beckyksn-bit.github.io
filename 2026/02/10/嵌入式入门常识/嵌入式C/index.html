@@ -4,18 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>文件开头 | Hexo</title>
+  <title>嵌入式知识盲点合集 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="文件开头">
-<meta property="og:url" content="http://example.com/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/index.html">
+  <meta name="description" content="sprintf的作用sprintf是 C 语言标准库（&lt;stdio.h&gt;）中的格式化字符串函数核心功能是把变量（int&#x2F;float&#x2F;char 等），按指定格式转换成字符串，并写入到字符数组（缓冲区）中。也叫做拼接变量。例如：  sprintf(buf, “ADC值：%d，电压：%.2fV”, adc_val, volt);    &#x2F;&#x2F; 此时buf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嵌入式知识盲点合集">
+<meta property="og:url" content="http://example.com/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="sprintf的作用sprintf是 C 语言标准库（&lt;stdio.h&gt;）中的格式化字符串函数核心功能是把变量（int&#x2F;float&#x2F;char 等），按指定格式转换成字符串，并写入到字符数组（缓冲区）中。也叫做拼接变量。例如：  sprintf(buf, “ADC值：%d，电压：%.2fV”, adc_val, volt);    &#x2F;&#x2F; 此时buf">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2026-02-08T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-08T08:14:43.923Z">
+<meta property="article:published_time" content="2026-02-10T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-13T13:17:14.459Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Driver">
-<meta property="article:tag" content="blog格式">
+<meta property="article:tag" content="嵌入式代码基础知识">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -73,10 +75,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-博客撰写指南/small how" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-嵌入式入门常识/嵌入式C" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/" class="article-date">
-  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">2026-02-08</time>
+    <a href="/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/" class="article-date">
+  <time class="dt-published" datetime="2026-02-10T02:00:00.000Z" itemprop="datePublished">2026-02-10</time>
 </a>
     
   <div class="article-category">
@@ -91,7 +93,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      文件开头
+      嵌入式知识盲点合集
     </h1>
   
 
@@ -99,15 +101,81 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>sprintf的作用<br>sprintf是 C 语言标准库（&lt;stdio.h&gt;）中的格式化字符串函数<br>核心功能是把变量（int&#x2F;float&#x2F;char 等），按指定格式转换成字符串，并写入到字符数组（缓冲区）中。也叫做拼接变量。<br>例如：  sprintf(buf, “ADC值：%d，电压：%.2fV”, adc_val, volt);<br>    &#x2F;&#x2F; 此时buf中的内容是：”ADC值：2048，电压：1.65V”</p>
+<p>UART_TypeDef和UART_HandleType的区别<br>UART_TypeDef：UART 外设的寄存器映射结构体<br>UART_TypeDef 是 STM32 标准库 &#x2F; HAL 库中定义的寄存器地址映射结构体，每一个成员对应 UART 外设的一个物理寄存器（如 SR、DR、BRR 等），其首地址直接对应单片机内存中 UART 外设的硬件寄存器地址。<br>例如：<br>typedef struct {<br>  __IO uint32_t SR;   &#x2F;&#x2F; 状态寄存器<br>  __IO uint32_t DR;   &#x2F;&#x2F; 数据寄存器<br>  __IO uint32_t BRR;  &#x2F;&#x2F; 波特率寄存器<br>  __IO uint32_t CR1;  &#x2F;&#x2F; 控制寄存器1<br>  &#x2F;&#x2F; … 其他寄存器（CR2、CR3、GTPR等）<br>} UART_TypeDef;<br>&#x2F;&#x2F; 预定义：将结构体映射到实际硬件寄存器地址（如USART1基地址0x40013800）<br>#define USART1 ((UART_TypeDef *)0x40013800U)<br>#define USART2 ((UART_TypeDef *)0x40004400U)&#x2F;&#x2F;USART1、USART2是指向某特定串口硬件的地址</p>
+<p>UART_HandleTypeDef：HAL 库的 UART 操作句柄<br>UART_HandleTypeDef包含了指向 UART_TypeDef 的指针（Instance），还封装了 UART 的配置参数、运行状态、回调函数等。<br>标准定义（HAL 库 stm32g4xx_hal_uart.h 中）：<br>typedef struct __UART_HandleTypeDef {<br>  UART_TypeDef* Instance;        &#x2F;&#x2F; 指向UART寄存器结构体的指针（核心关联）<br>  UART_InitTypeDef Init;         &#x2F;&#x2F; UART配置参数（波特率、数据位、停止位等）<br>  uint8_t* pTxBuffPtr;           &#x2F;&#x2F; 发送缓冲区指针<br>  uint16_t TxXferSize;           &#x2F;&#x2F; 发送数据长度<br>  …<br>} UART_HandleTypeDef;<br>其中huart1.Instance&#x3D;USART1;</p>
+<p>uwTick介绍<br>uwTick&#x3D;HAL_IncTick(),即从系统启动到现在的时间（ms）；<br>基本单位：默认 1 毫秒（ms）&#x3D; 1000 微秒（μs）<br>数据类型：uint32_t（32 位无符号整数），最大值为 0xFFFFFFFF（约 49.7 天），溢出后会从 0 重新计数</p>
+<p>十六进制转二进制的核心规则（基础）<br>十六进制的每 1 位对应二进制的 4 位</p>
+<table>
+<thead>
+<tr>
+<th>十六进制位</th>
+<th>对应二进制</th>
+<th>十六进制位</th>
+<th>对应二进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0000</td>
+<td>8</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+<td>9</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0010</td>
+<td>A</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0011</td>
+<td>B</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+<td>C</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0101</td>
+<td>D</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0110</td>
+<td>E</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0111</td>
+<td>F</td>
+<td>1111</td>
+</tr>
+</tbody></table>
+<p>计算机以补码的形式存储、计算数字<br>正数：原码 &#x3D; 反码 &#x3D; 补码；<br>例如：250（dec） &#x3D;1111 1010（原码&#x3D;反码&#x3D;补码）<br>负数：补码 &#x3D; 反码 + 1，反码 &#x3D; 原码（符号位不变）数值位取反；<br>例如：-122（dec）原码：1111 1010  反码：1000 0101 补码：1000 0110<br>计算机只用补码运算，原码是直观表示，反码是推导补码的中间步骤</p>
+<p>int变量和char变量的本质区别：<br> 当变量值用于字符类输入输出传输场景时，系统硬件会默认将其解析为 ASCII 码；此时不论是char还是int类型都存储与传输的都是ASCLL码值。</p>
+<p>pRxBuffPtr是UART接收数据的缓冲区指针，HAL库在接收中断中，会把接收到的每一个字节依次存入该指针指向的内存地址，每存一个字节，该指针会自动向后偏移1位。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/" data-id="cuidkcEWnyX717eO88_ds-oor" data-title="文件开头" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/" data-id="cuidnG9AhqI4Hw8xhOSeCBIJy" data-title="嵌入式知识盲点合集" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog%E6%A0%BC%E5%BC%8F/" rel="tag">blog格式</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%BB%A3%E7%A0%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">嵌入式代码基础知识</a></li></ul>
 
     </footer>
   </div>
@@ -115,19 +183,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/md%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2026/02/12/LQcode/09adc_user/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          文件开头
+          adc_user.h
         
       </div>
     </a>
   
   
-    <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/md%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">计算机硬件基础</div>
+      <div class="article-nav-title">文件开头</div>
     </a>
   
 </nav>

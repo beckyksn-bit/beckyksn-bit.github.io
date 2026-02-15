@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-LQcode/09adc_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/12/LQcode/09adc_user/" class="article-date">
+  <time class="dt-published" datetime="2026-02-12T02:00:00.000Z" itemprop="datePublished">2026-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/12/LQcode/09adc_user/">adc_user.h</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#include “adc_user.h”<br>#include “adc_user.h”<br>#include “adc_user.h”</p>
+<p>uint32_t dma_buff[2][30];<br>float adc_value[2];</p>
+<p>void adc_proc(void)<br>{<br>  for(int i&#x3D;0;i&lt;30;i++)<br>{<br>  adc_value[0]+&#x3D;dma_buff[0][i];<br>  adc_value[1]+&#x3D;dma_buff[1][i];<br>}<br>  adc_value[0]&#x3D;adc_value[0]&#x2F;30<em>3.3f&#x2F;4095;<br>  adc_value[1]&#x3D;adc_value[1]&#x2F;30</em>3.3f&#x2F;4095; </p>
+<p>  LcdSprintf(Line2,”adc_value[0]为%.2f”,adc_value[0]);<br>  LcdSprintf(Line3,”adc_value[1]为%.2f”,adc_value[1]);<br>}</p>
+<p>&#x2F;*<br>main函数中：<br>	HAL_ADC_Start_DMA(&amp;hadc1,&amp;dma_buff[0][0],30);<br>	HAL_ADC_Start_DMA(&amp;hadc2,&amp;dma_buff[1][0],30);<br>*&#x2F;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/12/LQcode/09adc_user/" data-id="cuid6oKBVWpUXwFFvyRhGMVHL" data-title="adc_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-嵌入式入门常识/嵌入式C" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/" class="article-date">
+  <time class="dt-published" datetime="2026-02-10T02:00:00.000Z" itemprop="datePublished">2026-02-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/">嵌入式知识盲点合集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>sprintf的作用<br>sprintf是 C 语言标准库（&lt;stdio.h&gt;）中的格式化字符串函数<br>核心功能是把变量（int&#x2F;float&#x2F;char 等），按指定格式转换成字符串，并写入到字符数组（缓冲区）中。也叫做拼接变量。<br>例如：  sprintf(buf, “ADC值：%d，电压：%.2fV”, adc_val, volt);<br>    &#x2F;&#x2F; 此时buf中的内容是：”ADC值：2048，电压：1.65V”</p>
+<p>UART_TypeDef和UART_HandleType的区别<br>UART_TypeDef：UART 外设的寄存器映射结构体<br>UART_TypeDef 是 STM32 标准库 &#x2F; HAL 库中定义的寄存器地址映射结构体，每一个成员对应 UART 外设的一个物理寄存器（如 SR、DR、BRR 等），其首地址直接对应单片机内存中 UART 外设的硬件寄存器地址。<br>例如：<br>typedef struct {<br>  __IO uint32_t SR;   &#x2F;&#x2F; 状态寄存器<br>  __IO uint32_t DR;   &#x2F;&#x2F; 数据寄存器<br>  __IO uint32_t BRR;  &#x2F;&#x2F; 波特率寄存器<br>  __IO uint32_t CR1;  &#x2F;&#x2F; 控制寄存器1<br>  &#x2F;&#x2F; … 其他寄存器（CR2、CR3、GTPR等）<br>} UART_TypeDef;<br>&#x2F;&#x2F; 预定义：将结构体映射到实际硬件寄存器地址（如USART1基地址0x40013800）<br>#define USART1 ((UART_TypeDef *)0x40013800U)<br>#define USART2 ((UART_TypeDef *)0x40004400U)&#x2F;&#x2F;USART1、USART2是指向某特定串口硬件的地址</p>
+<p>UART_HandleTypeDef：HAL 库的 UART 操作句柄<br>UART_HandleTypeDef包含了指向 UART_TypeDef 的指针（Instance），还封装了 UART 的配置参数、运行状态、回调函数等。<br>标准定义（HAL 库 stm32g4xx_hal_uart.h 中）：<br>typedef struct __UART_HandleTypeDef {<br>  UART_TypeDef* Instance;        &#x2F;&#x2F; 指向UART寄存器结构体的指针（核心关联）<br>  UART_InitTypeDef Init;         &#x2F;&#x2F; UART配置参数（波特率、数据位、停止位等）<br>  uint8_t* pTxBuffPtr;           &#x2F;&#x2F; 发送缓冲区指针<br>  uint16_t TxXferSize;           &#x2F;&#x2F; 发送数据长度<br>  …<br>} UART_HandleTypeDef;<br>其中huart1.Instance&#x3D;USART1;</p>
+<p>uwTick介绍<br>uwTick&#x3D;HAL_IncTick(),即从系统启动到现在的时间（ms）；<br>基本单位：默认 1 毫秒（ms）&#x3D; 1000 微秒（μs）<br>数据类型：uint32_t（32 位无符号整数），最大值为 0xFFFFFFFF（约 49.7 天），溢出后会从 0 重新计数</p>
+<p>十六进制转二进制的核心规则（基础）<br>十六进制的每 1 位对应二进制的 4 位</p>
+<table>
+<thead>
+<tr>
+<th>十六进制位</th>
+<th>对应二进制</th>
+<th>十六进制位</th>
+<th>对应二进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0000</td>
+<td>8</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+<td>9</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0010</td>
+<td>A</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0011</td>
+<td>B</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+<td>C</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0101</td>
+<td>D</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0110</td>
+<td>E</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0111</td>
+<td>F</td>
+<td>1111</td>
+</tr>
+</tbody></table>
+<p>计算机以补码的形式存储、计算数字<br>正数：原码 &#x3D; 反码 &#x3D; 补码；<br>例如：250（dec） &#x3D;1111 1010（原码&#x3D;反码&#x3D;补码）<br>负数：补码 &#x3D; 反码 + 1，反码 &#x3D; 原码（符号位不变）数值位取反；<br>例如：-122（dec）原码：1111 1010  反码：1000 0101 补码：1000 0110<br>计算机只用补码运算，原码是直观表示，反码是推导补码的中间步骤</p>
+<p>int变量和char变量的本质区别：<br> 当变量值用于字符类输入输出传输场景时，系统硬件会默认将其解析为 ASCII 码；此时不论是char还是int类型都存储与传输的都是ASCLL码值。</p>
+<p>pRxBuffPtr是UART接收数据的缓冲区指针，HAL库在接收中断中，会把接收到的每一个字节依次存入该指针指向的内存地址，每存一个字节，该指针会自动向后偏移1位。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/" data-id="cuidnG9AhqI4Hw8xhOSeCBIJy" data-title="嵌入式知识盲点合集" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%BB%A3%E7%A0%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">嵌入式代码基础知识</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-博客撰写指南/md文件格式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/md%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">2026-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/md%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/">文件开头</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>你写嵌入式笔记最常用的格式（推荐）<br>markdown</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>作用</th>
+<th>所属头文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sprintf</td>
+<td>格式化字符串</td>
+<td>stdio.h</td>
+</tr>
+<tr>
+<td>HAL_UART_Transmit</td>
+<td>串口发送</td>
+<td>stm32xx_hal_uart.h</td>
+</tr>
+</tbody></table>
+<p>四、记住 3 条规则（永远不会错）<br>每一列用 | 分开<br>第二行必须写 — 分隔线<br>空格多少无所谓，会自动对齐</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/md%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/" data-id="cuidxUPdYE4LbZIk_HGL4d82V" data-title="文件开头" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog%E6%A0%BC%E5%BC%8F/" rel="tag">blog格式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-博客撰写指南/small how" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/" class="article-date">
+  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">2026-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/">文件开头</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/" data-id="cuidkcEWnyX717eO88_ds-oor" data-title="文件开头" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog%E6%A0%BC%E5%BC%8F/" rel="tag">blog格式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-嵌入式入门常识/comBasic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/" class="article-date">
+  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">2026-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/">计算机硬件基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/d5a44d3ca1962f71c05e1546cd331448.jpg" alt="alt text"><br>缓存：位于CPU内部，（L1、L2、L3）存储速度最快，协助CPU处理数据<br>内存：也叫memory，位于CPU外部，存储速度次之，协助CPU处理数据<br>硬盘：长期存储系统，软件，文件（断电不丢失）</p>
+<p>RAM：缓存SRAM(静态RAM),内存DRAM（动态RAM，充放电擦除所以慢一点）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/" data-id="cuidDpLz8pOHc4yVd8SWClQmV" data-title="计算机硬件基础" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-嵌入式入门常识/nomenclature" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/nomenclature/" class="article-date">
+  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">2026-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/nomenclature/">编程语言中的命名规则</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一、驼峰明明法<br>小驼峰命名法<br>格式：第一个单词首字母小写，后续单词首字母大写，无下划线。<br>eg:lowerCamelCase<br>适用范围：适用场景：绝大多数编程语言中的变量、函数 &#x2F; 方法、对象属性</p>
+<p> 大驼峰命名法<br>格式：每个单词的首字母都大写，无下划线，也叫帕斯卡命名法。<br>eg:UpperCamelCase &#x2F; PascalCase<br>适用范围：适用场景：类、接口、结构体、枚举、全局常量（部分语言），是面向对象编程中的核心命名规范。</p>
+<p>二、 常量命名法<br>这是下划线命名法的变种，也叫全大写下划线命名法，是常量的专属命名规范。<br>格式：所有字母大写 + 单词之间用 _ 连接。<br>eg:const MAX_RETRY_COUNT &#x3D; 3;<br>适用范围：适用场景：所有编程语言中的常量（包括全局常量、枚举值、配置项中的固定值）。</p>
+<p>三、 下划线命名法<br>下划线命名法的特点是所有字母小写，单词之间用下划线 _ 分隔，风格简洁直观，不易出错。<br>eg:columns: user_id, user_name, create_time，system_init;<br>适用范围：函数名，复合变量名。</p>
+<p>四、 连字符命名法<br>连字符命名法的特点是所有字母小写，单词之间用连字符 - 分隔，也叫短横线命名法。<br>格式：全小写 + 单词之间用 - 连接。<br>eg:user-info-title {<br>    font-size: 18px;<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/nomenclature/" data-id="cuidd9i0maTIzrXquAMPzZKoY" data-title="编程语言中的命名规则" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/" rel="tag">命名规则</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-嵌入式入门常识/periTheory" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/periTheory/" class="article-date">
+  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">2026-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/periTheory/">单片机寄存器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>锁存器（latch）—对脉冲电平敏感，在时钟脉冲的电平作用下改变状态<br>触发器(flip-flop)—对脉冲边沿敏感，其状态只在时钟脉冲的上升沿或下降沿的瞬间改变<br>寄存器（register）：用来存放数据的一些小型存储区域，用来暂时存放参与运算的数据和运算结果</p>
+<p>16位寄存器<br>1111 1111 1111 1111<br>GPIOC-&gt;ODR&amp;&#x3D;0x00FF：清除GPIOC数据寄存器高8位，保留低八位<br>GPIOC-&gt;ODR|&#x3D;0xFF&lt;&lt;8;GPIOC高8位的数据寄存器设为高电平</p>
+<p>BSRR：<br>STM32的BSRR是32位寄存器，按功能分为两个16位区域（对应GPIO的16个引脚Px0 ~ Px15），仅支持写操作，读操作返回无效值。<br>BRR：<br>就是BSRR的高16位置零寄存器</p>
+<hr>
+<h2 id="第-0-15位-BS（Bit-Set）-置-1-区域：写-1-对应引脚输出高电平，写-0-无效果-第8位写1→PC8-置高"><a href="#第-0-15位-BS（Bit-Set）-置-1-区域：写-1-对应引脚输出高电平，写-0-无效果-第8位写1→PC8-置高" class="headerlink" title="第 0 ~ 15位 |BS（Bit Set）  |置 1 区域：写 1 对应引脚输出高电平，写 0 无效果|	第8位写1→PC8 置高 | "></a>第 0 ~ 15位 |BS（Bit Set）  |置 1 区域：写 1 对应引脚输出高电平，写 0 无效果|	第8位写1→PC8 置高 | </h2><p>第 16 ~ 31位|BR（Bit Reset）|置 0 区域：写 1 对应引脚输出低电平，写 0 无效果|   第24位写1→PC8 置低|</p>
+<p>eg:GPIOC-&gt;BSRR&#x3D;0x01&lt;&lt;8;  &#x2F;&#x2F;PC8置高电平<br>GPIOC-&gt;BSRR&#x3D;0x01&lt;&lt;16+8;  &#x2F;&#x2F;PC8置低电平 &lt;&#x3D;&#x3D;&gt;GPIOC-&gt;BRR&#x3D;0x01&lt;&lt;8;</p>
+<p>GPIOD-&gt;BSRR &#x3D; 0x11：仅将 PD0、PD4 置为高电平，PD1<del>PD3、PD5</del>PD15 保持原有电平不变；<br>GPIOD-&gt;ODR &#x3D; 0x11：强制将 PD0、PD4 置为高电平，同时将 PD1<del>PD3、PD5</del>PD15 全部置为低电平（覆盖所有引脚状态）</p>
+<p>关键规则：<br>无论是BS区域还是BR区域，只有写1有效，写0完全不影响对应引脚。<br>若同时对某一引脚的BS位和BR位写 1，BS位（置 1）优先级更高。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/periTheory/" data-id="cuidknMp_TILr8HsukcMEATHM" data-title="单片机寄存器" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ODR/" rel="tag">ODR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LQcode/00基础配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/03/LQcode/00%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time class="dt-published" datetime="2026-02-03T05:01:00.000Z" itemprop="datePublished">2026-02-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/stm32%E5%AD%A6%E4%B9%A0/">stm32学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/03/LQcode/00%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/">CubeMX结合keil使用的基础配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>CubeMX结合Keil使用的基础配置<br>时钟配置：<br>input frequency–晶振的频率24Mhz(蓝桥杯嵌入式板子)  HSE-PLLCLK-APB1、APB2根据题目设置<br>SYS配置：<br>蓝桥杯的不用设置，其余情况根据下载器的协议选择<br>NVIC配置：<br>System tick timer 优先级设置为0<br>工程的配置：<br>固件包选择GW1.4.0版本<br>keil的配置：<br>菱形取消勾选；target&#x2F;微库√；C&#x2F;C++&#x2F;优化等级设0； Debug&#x2F;setting&#x2F;trace-flash download</p>
+<p>.mxproject文件包含项目的元数据和配置<br>core目录包含核心代码：主程序、系统初始化（时钟、外设）、中断服务例程<br>Driver目录包含设备驱动程序，通常包含外设的初始化和控制代码（GPIO.UART.I2C等外设的控制接口），设备抽象层（HAL&#x2F;LL库）<br>MDK-ARM目录用于存放ARM MDK集成开发环境的相关环境<br>user存放用户自定义的代码目录<br>.ioc文件是一个I&#x2F;O配置文件，通常用于描述控制器的引脚和外设配置</p>
+<p>新建system.c&#x2F;.h<br>system.c：<br>#include “system.h” （ #include &lt;&gt;：用于引入系统 &#x2F; 标准库头文件；#include “”：用于引入用户自定义头件）<br>system.h的预编译：<br>#ifndef __SYSTEM_H<br>#define __SYSTEM_H</p>
+<p>#endif</p>
+<p>新建bsp_system.h<br>bsp_system.h存放该工程所有的公共变量，结构体，枚举等；以及所有需要链接的到的库以及所有.h文件；<br>各个子文件中只需要包含#include “bsp_system.h”</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/03/LQcode/00%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" data-id="cuidimPRNYr5KkVYZMLeWh5zv" data-title="CubeMX结合keil使用的基础配置" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">基础知识</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/stm32%E5%AD%A6%E4%B9%A0/">stm32学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ODR/" rel="tag">ODR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog%E6%A0%BC%E5%BC%8F/" rel="tag">blog格式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/" rel="tag">命名规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%BB%A3%E7%A0%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">嵌入式代码基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Driver/" style="font-size: 16.67px;">Driver</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/ODR/" style="font-size: 10px;">ODR</a> <a href="/tags/blog%E6%A0%BC%E5%BC%8F/" style="font-size: 13.33px;">blog格式</a> <a href="/tags/stm32/" style="font-size: 13.33px;">stm32</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" style="font-size: 20px;">代码模板</a> <a href="/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/" style="font-size: 10px;">命名规则</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">基础知识</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%BB%A3%E7%A0%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 13.33px;">嵌入式代码基础知识</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="font-size: 20px;">蓝桥杯嵌入式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/13/LQcode/00%E6%AF%94%E8%BE%83%E9%A1%B5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%9F%A5%E8%AF%86/">辅助工具理论</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/12/LQcode/03system/">system.h</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/12/LQcode/01%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/">keil工程的基本框架</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/12/LQcode/02bsp_system/">bsp_system.h</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
