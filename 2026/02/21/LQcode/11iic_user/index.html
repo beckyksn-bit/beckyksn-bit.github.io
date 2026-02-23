@@ -4,14 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>Tag: Driver | Hexo</title>
+  <title>iic_user.h | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/Driver/index.html">
+  <meta name="description" content="#include “iic_user.h” &#x2F;&#x2F;24c02的相关代码void iic_24c02_write(unsigned char *pucBuf,unsigned char ucAddr,unsigned char ucNum)&#x2F;&#x2F;pucBuf待写入数据的缓冲区首地址      ucAddr：24c02的存储地址     ucNum：要写入的字节数{">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iic_user.h">
+<meta property="og:url" content="http://example.com/2026/02/21/LQcode/11iic_user/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#include “iic_user.h” &#x2F;&#x2F;24c02的相关代码void iic_24c02_write(unsigned char *pucBuf,unsigned char ucAddr,unsigned char ucNum)&#x2F;&#x2F;pucBuf待写入数据的缓冲区首地址      ucAddr：24c02的存储地址     ucNum：要写入的字节数{">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-21T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-23T03:21:24.321Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="代码模板">
+<meta property="article:tag" content="蓝桥杯嵌入式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -69,134 +75,120 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2026" class="archive-year">2026</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-13T02:00:00.000Z" itemprop="datePublished">Feb 13</time>
+        <section id="main"><article id="post-LQcode/11iic_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/21/LQcode/11iic_user/" class="article-date">
+  <time class="dt-published" datetime="2026-02-21T02:00:00.000Z" itemprop="datePublished">2026-02-21</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%9F%A5%E8%AF%86/">辅助工具理论</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      iic_user.h
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-10T02:00:00.000Z" itemprop="datePublished">Feb 10</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/">嵌入式知识盲点合集</a>
-    </h1>
-  
+        <p>#include “iic_user.h”</p>
+<p>&#x2F;&#x2F;24c02的相关代码<br>void iic_24c02_write(unsigned char *pucBuf,unsigned char ucAddr,unsigned char ucNum)<br>&#x2F;&#x2F;pucBuf待写入数据的缓冲区首地址      ucAddr：24c02的存储地址     ucNum：要写入的字节数<br>{<br>    I2CStart();<br>    I2CSendByte(0xa0);      &#x2F;&#x2F;设备地址+读写位<br>    I2CWaitAck();</p>
+<pre><code>I2CSendByte(ucAddr);    //存入地址/读取地址
+I2CWaitAck();
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/md%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">Feb 8</time>
-</a>
+while(ucNum--)
+{
+    I2CSendByte(*pucBuff++);
+    I2CWaitAck();
+}
+I2CStop();
+delay1(500);//HAL_Delay(5);
+</code></pre>
+<p>}<br>void iic_24c02_read(unsigned char *pucBuf,unsigned char ucAdrr,unsigned char ucNum)<br>&#x2F;&#x2F;pucBuff存储读取内容的首地址      ucAddr:24c02的存储地址       ucNum:要读取的字节数<br>{<br>    I2C_Start();<br>    I2C_SendByte(0xa0);    &#x2F;&#x2F;传入了24c02的设备地址+写命令<br>    I2C_WaitAck();</p>
+<pre><code>I2C_SendByte(ucAddr);   //读取地址（告诉24c02我要读那个位置的数据）
+I2C_WaitAck();
+
+I2C_Start();
+I2C_SendByte(0xa1)；    //传入了24c02的设备地址+读命令
+I2C_WaitAck();
+
+while(ucNum--)
+{
+    *pucBuf++=I2C_ReceiveByte();
+    if(ucNum) 
+        I2C_SendAck();
+    else 
+        I2C_SendNotAck();
+}
+I2C_Stop();
+</code></pre>
+<p>}</p>
+<p>void write_resistor(uint8_t value)<br>{<br>    I2C_Start();<br>    I2CSendByte(0x5E);<br>    I2CWaitAck();</p>
+<pre><code>I2CSendByte(value);
+I2CWaitAck();
+I2CStop();
+</code></pre>
+<p>}</p>
+<p>uint8_t read_resistor(void)<br>{<br>    uint8_t value;<br>    I2CStart();<br>    I2CSendByte(0x5F);<br>    I2CWaitAck();</p>
+<pre><code>value=I2CReceiveByte();
+I2CSendNotAck();
+I2CStop();
+
+return value;
+</code></pre>
+<p>}</p>
+<p>&#x2F;*main函数中</p>
+<p>EEPROM的相关变量<br>unsigned char EEPROM_String_1[5] &#x3D; {0x11,0x22,0x33,0x44,0x55};<br>unsigned char EEPROM_String_2[5] &#x3D; {0};</p>
+<p>4017相关变量<br>uint8_t RES_4017;</p>
+<p>EEPROM测试<br>iic_24c02_write(EEPROM_String_1,0,5);<br>HAL_Delay();<br>iic_24c02_read(EEPROM_String_2,0,5);</p>
+<p>MCP4017测试<br>write_resistor(0x77);<br>RES_4017&#x3D;read_resistor();</p>
+<p>LCD_Sprintf(Line2,”%x%x%x%x%x R:%x”,EEPROM_String_2[0],EEPROM_String_2[1],EEPROM_String_2[2],EEPROM_String_2[3],EEPROM_String_2[4],RES_4017);</p>
+<p>LCD_Sprintf(Line3,”5.2f%KΩ”,0.7874*RES_4017);<br>*&#x2F;</p>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/md%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/">文件开头</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">Feb 8</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/21/LQcode/11iic_user/" data-id="cuidCGvE6sKAwZS-cs9mjvian" data-title="iic_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/">文件开头</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">Feb 8</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/">计算机硬件基础</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/03/LQcode/00%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-03T05:01:00.000Z" itemprop="datePublished">Feb 3</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/03/LQcode/00%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/">CubeMX结合keil使用的基础配置</a>
-    </h1>
-  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/02/21/LQcode/10exti_user/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          exti_user.h
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/02/21/LQcode/13rtc_user/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">rtc_user.h</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>

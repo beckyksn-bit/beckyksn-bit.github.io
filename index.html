@@ -71,26 +71,253 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-LQcode/00比较页" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-LQcode/10exti_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/02/13/LQcode/00%E6%AF%94%E8%BE%83%E9%A1%B5/" class="article-date">
-  <time class="dt-published" datetime="2026-02-13T08:13:15.427Z" itemprop="datePublished">2026-02-13</time>
+    <a href="/2026/02/21/LQcode/10exti_user/" class="article-date">
+  <time class="dt-published" datetime="2026-02-21T02:00:00.000Z" itemprop="datePublished">2026-02-21</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/21/LQcode/10exti_user/">exti_user.h</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <p>#include “exti_user.h”</p>
+<p>void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)<br>{<br>    ucled[0]^&#x3D;1;<br>}</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/LQcode/00%E6%AF%94%E8%BE%83%E9%A1%B5/" data-id="cuidcS3dUzPg8K2XVZa0qWuv9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/21/LQcode/10exti_user/" data-id="cuidO34wO-h8fkyj9UnYhqa-5" data-title="exti_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LQcode/11iic_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/21/LQcode/11iic_user/" class="article-date">
+  <time class="dt-published" datetime="2026-02-21T02:00:00.000Z" itemprop="datePublished">2026-02-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/21/LQcode/11iic_user/">iic_user.h</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#include “iic_user.h”</p>
+<p>&#x2F;&#x2F;24c02的相关代码<br>void iic_24c02_write(unsigned char *pucBuf,unsigned char ucAddr,unsigned char ucNum)<br>&#x2F;&#x2F;pucBuf待写入数据的缓冲区首地址      ucAddr：24c02的存储地址     ucNum：要写入的字节数<br>{<br>    I2CStart();<br>    I2CSendByte(0xa0);      &#x2F;&#x2F;设备地址+读写位<br>    I2CWaitAck();</p>
+<pre><code>I2CSendByte(ucAddr);    //存入地址/读取地址
+I2CWaitAck();
+
+while(ucNum--)
+{
+    I2CSendByte(*pucBuff++);
+    I2CWaitAck();
+}
+I2CStop();
+delay1(500);//HAL_Delay(5);
+</code></pre>
+<p>}<br>void iic_24c02_read(unsigned char *pucBuf,unsigned char ucAdrr,unsigned char ucNum)<br>&#x2F;&#x2F;pucBuff存储读取内容的首地址      ucAddr:24c02的存储地址       ucNum:要读取的字节数<br>{<br>    I2C_Start();<br>    I2C_SendByte(0xa0);    &#x2F;&#x2F;传入了24c02的设备地址+写命令<br>    I2C_WaitAck();</p>
+<pre><code>I2C_SendByte(ucAddr);   //读取地址（告诉24c02我要读那个位置的数据）
+I2C_WaitAck();
+
+I2C_Start();
+I2C_SendByte(0xa1)；    //传入了24c02的设备地址+读命令
+I2C_WaitAck();
+
+while(ucNum--)
+{
+    *pucBuf++=I2C_ReceiveByte();
+    if(ucNum) 
+        I2C_SendAck();
+    else 
+        I2C_SendNotAck();
+}
+I2C_Stop();
+</code></pre>
+<p>}</p>
+<p>void write_resistor(uint8_t value)<br>{<br>    I2C_Start();<br>    I2CSendByte(0x5E);<br>    I2CWaitAck();</p>
+<pre><code>I2CSendByte(value);
+I2CWaitAck();
+I2CStop();
+</code></pre>
+<p>}</p>
+<p>uint8_t read_resistor(void)<br>{<br>    uint8_t value;<br>    I2CStart();<br>    I2CSendByte(0x5F);<br>    I2CWaitAck();</p>
+<pre><code>value=I2CReceiveByte();
+I2CSendNotAck();
+I2CStop();
+
+return value;
+</code></pre>
+<p>}</p>
+<p>&#x2F;*main函数中</p>
+<p>EEPROM的相关变量<br>unsigned char EEPROM_String_1[5] &#x3D; {0x11,0x22,0x33,0x44,0x55};<br>unsigned char EEPROM_String_2[5] &#x3D; {0};</p>
+<p>4017相关变量<br>uint8_t RES_4017;</p>
+<p>EEPROM测试<br>iic_24c02_write(EEPROM_String_1,0,5);<br>HAL_Delay();<br>iic_24c02_read(EEPROM_String_2,0,5);</p>
+<p>MCP4017测试<br>write_resistor(0x77);<br>RES_4017&#x3D;read_resistor();</p>
+<p>LCD_Sprintf(Line2,”%x%x%x%x%x R:%x”,EEPROM_String_2[0],EEPROM_String_2[1],EEPROM_String_2[2],EEPROM_String_2[3],EEPROM_String_2[4],RES_4017);</p>
+<p>LCD_Sprintf(Line3,”5.2f%KΩ”,0.7874*RES_4017);<br>*&#x2F;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/21/LQcode/11iic_user/" data-id="cuidCGvE6sKAwZS-cs9mjvian" data-title="iic_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LQcode/13rtc_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/21/LQcode/13rtc_user/" class="article-date">
+  <time class="dt-published" datetime="2026-02-21T02:00:00.000Z" itemprop="datePublished">2026-02-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/21/LQcode/13rtc_user/">rtc_user.h</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>&#x2F;*main函数中：<br>    rtc相关变量<br>    RTC_TimeTypeDef rtc_Time;<br>    RTC_DateTypeDef rtc_Date;</p>
+<pre><code>HAL_RTC_GetTime(&amp;hrtc,&amp;rtc_Time,RTC_FORMAT_BIN);
+HAL_RTC_GetDate(&amp;hrtc,&amp;rtc_Date,RTC_FORMAT_BIN);
+
+
+LAC_Sprintf(Line5,&quot;Date:%02d:%02d:%02d&quot;,rtc_Date.Year,rtc_Date.Month,rtc_Date.Date);
+LAC_Sprintf(Line4,&quot;Time:%02d:%02d:%02d&quot;,rtc_Time.Hours,rtc_Time.Minutes,rtc_Time.Seconds);
+</code></pre>
+<p>*&#x2F;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/21/LQcode/13rtc_user/" data-id="cuidOv-nq9lwMd4aeFEWAJQ1G" data-title="rtc_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LQcode/12tim_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/21/LQcode/12tim_user/" class="article-date">
+  <time class="dt-published" datetime="2026-02-21T02:00:00.000Z" itemprop="datePublished">2026-02-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/21/LQcode/12tim_user/">iic_user.h</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#include “tim_user.h”</p>
+<p>&#x2F;&#x2F;表示打开计时器<br>&#x2F;&#x2F;HAL_TIM_Base_Start(&amp;htim6);<br>&#x2F;&#x2F;用于简单的计数、计时需求，数值通过查询CNT;</p>
+<p>&#x2F;&#x2F;基础计时功能+中断<br>uint8_t i;<br>void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)<br>{<br>    if(htim-&gt;Instance&#x3D;&#x3D;TIM6)<br>    {<br>        i++;<br>        HAL_TIM_Base_Start_IT(&amp;htim6);<br>    }</p>
+<p>}<br>&#x2F;*main函数<br>HAL_TIM_Base_Start_IT(&amp;htim6);<br>*&#x2F;</p>
+<p>&#x2F;&#x2F;设置PWM占空比（占空比的单位是%，取值范围0.0-100.0）<br>void pwm_set_duty(float Duty)<br>{<br>    TIM2-&gt;CCR&#x3D;(TIM2-&gt;ARR+1)*(Duty&#x2F;100.0f);<br>}</p>
+<p>void pwm_set_frequency(int Frequency)&#x2F;&#x2F;(一秒钟产生pwm波的个数)<br>{<br>    uint32_t TIM2_CLK&#x3D;72000000;<br>    uint32_t ARR_Value;<br>    float duty_ratio&#x3D;(float)(TIM2-&gt;CCR2)&#x2F;(TIM2-&gt;ARR+1);<br>    ARR_Value&#x3D;(TIM2_CLK&#x2F;Frequency)-1;<br>    TIM2-&gt;ARR&#x3D;ARR_Value;<br>    TIM2-&gt;CCR2&#x3D;(uint8_t)((ARR_Value+1)*duty_ratio);<br>    TIM2-&gt;EGR&#x3D;TIM_EGR_UG;<br>}<br>&#x2F;*main函数中<br>HAL_TIM_PWM_Start(&amp;htim1,TIM_CHANNEL_1);<br>HAL_TIM_PWM_Start(&amp;htim1,TIM_CHANNEL_2);</p>
+<p>HAL_TIM_PWM_Stop(&amp;htim1,TIM_CHANNEL_1);<br>*&#x2F;</p>
+<p>&#x2F;&#x2F;输入捕获+DMA运数据<br>uint32_t tim_ic_buffer[2][64];<br>uint32_t tim_ic_val[2];<br>uint32_t tim_ic_temp[2];<br>void ic_proc(void)<br>{<br>tim_ic_temp[0]&#x3D;tim_ic_temp[1]&#x3D;0;<br>for(int i&#x3D;0;i&lt;64;i++)<br>{<br>    tim_ic_temp[0]+&#x3D;tim_ic_buffer[0][i];<br>    tim_ic_temp[1]+&#x3D;tim_ic_buffer[1][i];<br>}<br>tim_ic_temp[0]&#x2F;&#x3D;64;<br>tim_ic_temp[1]&#x2F;&#x3D;64;</p>
+<p>tim_ic_val[0]&#x3D;(int)((float)(1000.0f<em>1000.0f)&#x2F;(float)tim_ic_temp[0]);<br>tim_ic_val[1]&#x3D;(int)((float)(1000.0f</em>1000.0f)&#x2F;(float)tim_ic_temp[1]);</p>
+<p>printf(“%d %d\n”,tim_ic_val[0],tim_ic_val[0]);</p>
+<p>}<br>&#x2F;*main函数中：<br>输入捕获+DMA<br>HAL_TIM_Base_Start(&amp;htim3);<br>HAL_TIM_Base_Start(&amp;htim8);<br>HAL_TIM_IC_Start_DMA(&amp;htim3,TIM_CHANNEL_1,tim_ic_buffer[0],64);<br>HAL_TIM_IC_Start_DMA(&amp;htim8,TIM_CHANNEL_1,tim_ic_buffer[1],64);<br>*&#x2F;</p>
+<p>&#x2F;&#x2F;输入捕获+中断处理数据<br>uint8_t tim_ic_cnt1,tim_ic_cnt2;</p>
+<p>void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)<br>{<br>    if(htim-&gt;Instance&#x3D;&#x3D;TIM3)<br>    {<br>        if(htim-&gt;Channel&#x3D;&#x3D;HAL_TIM_ACTIVE_1)<br>        {<br>            tim_ic_cnt1&#x3D;HAL_TIM_ReadCaptureValue(htim,TIM_CHANNEL_1)+1;<br>        }<br>    }<br>     if(htim-&gt;Instance&#x3D;&#x3D;TIM8)<br>    {<br>        if(htim-&gt;Channel&#x3D;&#x3D;HAL_TIM_ACTIVE_1)<br>        {<br>            tim_ic_cnt2&#x3D;HAL_TIM_ReadCaptureValue(htim,TIM_CHANNEL_1)+1;<br>        }<br>    }</p>
+<p>}<br>&#x2F;*main函数中：<br>输入捕获+中断<br>HAL_TIM_Base_Start(&amp;htim3);<br>HAL_TIM_Base_Start(&amp;htim3);<br>HAL_TIM_IC_Start_IT(&amp;hitm3,TIM_CHANNEL_1);<br>HAL_TIM_IC_Start_IT(&amp;hitm3,TIM_CHANNEL_1);<br>*&#x2F;</p>
+<p>&#x2F;&#x2F;输出比较（计数到CCR值，执行中断函数）<br>void HAL_TIM_OC_DelayElapseCallback(TIM_HandleTypeDef *htim)<br>{<br>    if(htim-&gt;Instance&#x3D;&#x3D;TIM4)<br>    {<br>        if(htim-&gt;Channel&#x3D;&#x3D;HAL_TIM_ACTIVE_CHANNEL_1)<br>        {<br>            __HAL_TIM_SETCOMPARE(htim,TIM_CHANNEL_1(__HAL_TIM_GetCounter(htim)+200));<br>        }<br>        else if (htim-&gt;Channel&#x3D;&#x3D;HAL_TIM_ACTIVE_CHANNEL_2)<br>        {<br>            __HAL_TIM_SETCOMPARE(htim,TIM_CHANNEL_1(__HAL_TIM_GetCounter(htim)+500));<br>        }<br>    }<br>}<br>&#x2F;*main函数中：<br>HAL_TIM_OC_Start_IT(&amp;htim4,TIM_CHANNEL_1);<br>HAL_TIM_OC_Start_IT(&amp;htim4,TIM_CHANNEL_2);<br>*&#x2F;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/21/LQcode/12tim_user/" data-id="cuidW4Qlh2v8gZNXjcDDiAqda" data-title="iic_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
+
     </footer>
   </div>
   
@@ -130,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%9F%A5%E8%AF%86/" data-id="cuidtxyFYmyzEkbRZMIRM0LBf" data-title="辅助工具理论" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%9F%A5%E8%AF%86/" data-id="cuidk-o6rwQdwOwrY-KhEyG2Y" data-title="辅助工具理论" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -177,52 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/03system/" data-id="cuidHTLDOjhbm5FjQTb6B_vqf" data-title="system.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-LQcode/01工程基础框架" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/12/LQcode/01%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/" class="article-date">
-  <time class="dt-published" datetime="2026-02-12T02:00:00.000Z" itemprop="datePublished">2026-02-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/12/LQcode/01%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/">keil工程的基本框架</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>├─ myProject                                            #你的工程名<br>│  ├─Application&#x2F;MDK-ARM<br>│  └─ Application&#x2F;User&#x2F;Core<br>│  └─ Drivers&#x2F;STM32G4xx_HAL_DriverApplication&#x2F;User&#x2F;Core<br>│  └─Drivers&#x2F;CMSIS<br>│  └─user                                               #自己建的<br>│     └─ bsp_system.h  #存放各个.h文件、全局变量、<br>│     └─ system.c      #存放系统初始化函数<br>│     └─ sheduler.c    #任务调度器协调不同函数进程<br>│     └─ xxx_user.c    #各个模块.c文件</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/01%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/" data-id="cuid2j5H-7m522PGD-LQYuQBW" data-title="keil工程的基本框架" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/12/LQcode/03system/" data-id="cuidd5R5yZozrM_7STa7spEHa" data-title="system.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -271,58 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/02bsp_system/" data-id="cuidEkGHcS2mTMeSnonQnppFi" data-title="bsp_system.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-LQcode/04scheduler" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/12/LQcode/04scheduler/" class="article-date">
-  <time class="dt-published" datetime="2026-02-12T02:00:00.000Z" itemprop="datePublished">2026-02-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/12/LQcode/04scheduler/">scheduler.h</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>#include “scheduler.h”</p>
-<p>typedef struct{<br>  void (task_func*)(void);<br>  uint32_t rate_ms;<br>  uint32_t last_run;<br>}task_t;</p>
-<p>static task_t task_scheduler[]&#x3D;       &#x2F;&#x2F;static修饰函数全局数组、全局变量时，会将其作用域从所有.c文件,限制为仅当前.c文件可见                  &#x2F;&#x2F;static修饰局部变量时，变量值初始化一次<br>{</p>
-<p>}</p>
-<p>static uint8_t task_num;<br>scheduler_init(){<br>  task_num&#x3D;sizeof(task_scheduler)&#x2F;sizeof(task_t);<br>}</p>
-<p>sheduler_run(){<br>  for(uint8_t i&#x3D;0;i&lt;task_num;i++){<br>    uint32_t now_time&#x3D;HAL_GetTick();<br>    if(now_time&gt;&#x3D;task_scheduler[i].rate_ms+task_scheduler[i].last_run){<br>      task_scheduler[i].last_run&#x3D;uwTick;<br>      task_scheduler[i].task_func();<br>    }<br>  }<br>}</p>
-<p>&#x2F;*main函数中：<br>sheduler_init();<br>*&#x2F;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/04scheduler/" data-id="cuidWoJ7LNhEWfbTJ4eunqXnC" data-title="scheduler.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/12/LQcode/02bsp_system/" data-id="cuidzRJhjxY2B0b_BmrS4bEh-" data-title="bsp_system.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -385,7 +516,7 @@ temp_old=temp;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/05led_user/" data-id="cuideEZfYu3ySRbbYHL-F6u62" data-title="led_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/12/LQcode/05led_user/" data-id="cuidtMOZdrIcmo8gWYGyFmBHi" data-title="led_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -399,9 +530,9 @@ temp_old=temp;
 
 
   
-    <article id="post-LQcode/06key_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-LQcode/04scheduler" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/02/12/LQcode/06key_user/" class="article-date">
+    <a href="/2026/02/12/LQcode/04scheduler/" class="article-date">
   <time class="dt-published" datetime="2026-02-12T02:00:00.000Z" itemprop="datePublished">2026-02-12</time>
 </a>
     
@@ -417,7 +548,7 @@ temp_old=temp;
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/12/LQcode/06key_user/">key_user.h</a>
+      <a class="p-name article-title" href="/2026/02/12/LQcode/04scheduler/">scheduler.h</a>
     </h1>
   
 
@@ -425,19 +556,18 @@ temp_old=temp;
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>#include “key_user.h”</p>
-<p>uint8_t key_val;<br>uint8_t key_down;<br>uint8_t key_up;<br>uint8_t key_old;</p>
-<p>uint8_t key_read()<br>{<br>  uint8_t temp&#x3D;0;<br>if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_1)&#x3D;&#x3D;GPIO_PIN_RESET)<br>{<br>   temp&#x3D;1;<br>}<br>if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_2)&#x3D;&#x3D;GPIO_PIN_RESET)<br>{<br>   temp&#x3D;2;<br>}<br>if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_3)&#x3D;&#x3D;GPIO_PIN_RESET)<br>{<br>   temp&#x3D;3;<br>}<br>if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_4)&#x3D;&#x3D;GPIO_PIN_RESET)<br>{<br>   temp&#x3D;4;<br>}<br>return temp;<br>}</p>
-<p>void key_proc()<br>{<br>    key_val&#x3D;key_read();                   &#x2F;&#x2F;PB2按下瞬间及保持&#x3D;2，松开&#x3D;0<br>    key_down&#x3D;key_val&amp;(key_val^key_old);   &#x2F;&#x2F;2&#x3D;2&amp;（2^0）  0^x&#x3D;x;<br>    key_up&#x3D;<del>(key_val)&amp;(key_val^key_old);  &#x2F;&#x2F;2&#x3D;</del>0&amp;（0^2）&#x3D;0xff &amp; 2<br>    key_old&#x3D;key_val;</p>
-<pre><code>if(key_down!=0)
-	ucled[key_down-1]^=1;							//对应的led电平翻转
-</code></pre>
+        <p>#include “scheduler.h”</p>
+<p>typedef struct{<br>  void (task_func*)(void);<br>  uint32_t rate_ms;<br>  uint32_t last_run;<br>}task_t;</p>
+<p>static task_t task_scheduler[]&#x3D;       &#x2F;&#x2F;static修饰函数全局数组、全局变量时，会将其作用域从所有.c文件,限制为仅当前.c文件可见                  &#x2F;&#x2F;static修饰局部变量时，变量值初始化一次<br>{</p>
 <p>}</p>
+<p>static uint8_t task_num;<br>scheduler_init(){<br>  task_num&#x3D;sizeof(task_scheduler)&#x2F;sizeof(task_t);<br>}</p>
+<p>sheduler_run(){<br>  for(uint8_t i&#x3D;0;i&lt;task_num;i++){<br>    uint32_t now_time&#x3D;HAL_GetTick();<br>    if(now_time&gt;&#x3D;task_scheduler[i].rate_ms+task_scheduler[i].last_run){<br>      task_scheduler[i].last_run&#x3D;uwTick;<br>      task_scheduler[i].task_func();<br>    }<br>  }<br>}</p>
+<p>&#x2F;*main函数中：<br>sheduler_init();<br>*&#x2F;</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/06key_user/" data-id="cuid60_eszio0CPrpFMgqLG-v" data-title="key_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/12/LQcode/04scheduler/" data-id="cuidPsfXAtfBef1BTZ9sRmyAu" data-title="scheduler.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -485,56 +615,7 @@ temp_old=temp;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/07lcd_user/" data-id="cuid0mX3Z0VcoUH9OLCRqEJDv" data-title="lcd_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-LQcode/08uart_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/12/LQcode/08uart_user/" class="article-date">
-  <time class="dt-published" datetime="2026-02-12T02:00:00.000Z" itemprop="datePublished">2026-02-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/12/LQcode/08uart_user/">uart_user.h</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>typedef __EILE FILE<br>int putc(int ch,FILE <em>fp)<br>{<br>  HAL_UART_Transmit(&amp;huart1,(uint8_t</em>)&amp;ch,1,10);<br>  return ch;<br>}</p>
-<p>uint32_t uart_rx_tick&#x3D;0;<br>uint16_t uart_rx_index&#x3D;0;<br>uint8_t  uart_rx_buffer[128]&#x3D;{0};</p>
-<p>HAL_UART_CpltCallBack(UART_HandleTypeDef *huart)<br>{<br>  if(huart-&gt;Instance&#x3D;&#x3D;USART1)<br>  {<br>    uart_rx_tick&#x3D;uwTick;<br>    uart_rx_index++;<br>    HAL_UART_Receive_IT(&amp;huart1,&amp;uart_rx_buffer[index],1);<br>  }<br>}</p>
-<p>void uart_proc(void)<br>{<br>  if(uart_rx_index&#x3D;&#x3D;0) return 0;<br>  if(uart_rx_tick-uwTick&gt;100)<br>  {<br>    printf(“UART reveive data is %s&#x2F;n”,uart_rx_buffer);<br>    LcdSprintf(Line1,”uart test successfully”);<br>    uart_rx_indLine1,”uart test successfully”ex&#x3D;0;<br>    memset(uart_rx_buffer,0,uart_rx_index);<br>    &#x2F;&#x2F;huart1.pRxBuffPtr&#x3D;uart_rx_buffer;<br>  }<br>}</p>
-<p>&#x2F;*main函数中：<br>HAL_UART_Receive_IT(&amp;huart1,&amp;uart_rx_buffer[index],1);<br>*&#x2F;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/08uart_user/" data-id="cuidCknuR0tEmwK1qhO49IQlp" data-title="uart_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/12/LQcode/07lcd_user/" data-id="cuidfgCikTEhXJ-1MLqlmeU0G" data-title="lcd_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -552,7 +633,7 @@ temp_old=temp;
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -605,23 +686,23 @@ temp_old=temp;
       <ul>
         
           <li>
-            <a href="/2026/02/13/LQcode/00%E6%AF%94%E8%BE%83%E9%A1%B5/">(no title)</a>
+            <a href="/2026/02/21/LQcode/10exti_user/">exti_user.h</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/21/LQcode/11iic_user/">iic_user.h</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/21/LQcode/13rtc_user/">rtc_user.h</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/21/LQcode/12tim_user/">iic_user.h</a>
           </li>
         
           <li>
             <a href="/2026/02/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%9F%A5%E8%AF%86/">辅助工具理论</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/12/LQcode/03system/">system.h</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/12/LQcode/01%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/">keil工程的基本框架</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/12/LQcode/02bsp_system/">bsp_system.h</a>
           </li>
         
       </ul>
