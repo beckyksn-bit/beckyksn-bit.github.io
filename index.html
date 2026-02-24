@@ -71,6 +71,190 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-博客撰写指南/md文件格式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/24/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/md%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2026-02-24T02:00:00.000Z" itemprop="datePublished">2026-02-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/24/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/md%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/">md文件格式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Markdown入门教程"><a href="#Markdown入门教程" class="headerlink" title="Markdown入门教程"></a><font face="仿宋" color=orange>Markdown入门教程</font></h1><h2 id="嘉有意"><a href="#嘉有意" class="headerlink" title="嘉有意"></a><center><font face="楷体" size=5>嘉有意</font></center></h2><h3 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h3><ol>
+<li><strong>安装vscode</strong></li>
+<li><strong>下载必要插件</strong></li>
+</ol>
+<h3 id="二、基本语法"><a href="#二、基本语法" class="headerlink" title="二、基本语法"></a>二、基本语法</h3><ol>
+<li><p><strong>标题</strong><br>#一级标题<br>##二级标题</p>
+</li>
+<li><p><strong>引用</strong></p>
+<blockquote>
+<p>这一条是一条引用</p>
+<blockquote>
+<p>这是引用嵌套</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>列表</strong></p>
+<ol>
+<li>无序列表</li>
+</ol>
+<ul>
+<li>列表1</li>
+</ul>
+<ul>
+<li>列表2</li>
+</ul>
+<ul>
+<li>列表3</li>
+</ul>
+<ol start="2">
+<li>有序列表<br>根据标题层级竖线依次降低层级。注意：缩进够不够</li>
+<li>嵌套</li>
+<li>TodoList<ul>
+<li><input disabled="" type="checkbox"> a</li>
+<li><input disabled="" type="checkbox"> b</li>
+<li><input disabled="" type="checkbox"> c</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><strong>表格</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐</th>
+<th align="left">居中对齐</th>
+<th align="right">右对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">a</td>
+<td align="left">b</td>
+<td align="right">c</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：使用英文冒号，且字符之间无多余冒号</p>
+</blockquote>
+</li>
+<li><p><strong>段落</strong></p>
+<ul>
+<li>换行？——两个以上的空格后回车换行</li>
+<li>分割线——三个* <hr>
+</li>
+<li>字体<table>
+<thead>
+<tr>
+<th align="center">字体</th>
+<th align="left">代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><em>斜体</em></td>
+<td align="left">* *</td>
+</tr>
+<tr>
+<td align="center">&#x3D;&#x3D;高亮&#x3D;&#x3D;</td>
+<td align="left">&#x3D;&#x3D; &#x3D;&#x3D;</td>
+</tr>
+<tr>
+<td align="center"><strong>粗体</strong></td>
+<td align="left">** **</td>
+</tr>
+<tr>
+<td align="center"><em><strong>斜粗体</strong></em></td>
+<td align="left">*** ***</td>
+</tr>
+<tr>
+<td align="center"><del>删除</del></td>
+<td align="left">~~ ~~</td>
+</tr>
+<tr>
+<td align="center"><u>下划线<u></td>
+<td align="left"><code>&lt;u&gt; &lt;/u&gt;</code></td>
+</tr>
+</tbody></table>
+</li>
+<li>脚注<br>  请大家多多一键三连<a href="%E8%BF%99%E6%98%AF%E8%84%9A%E6%B3%A8%E7%9A%84%E5%85%B7%E4%BD%93%E5%86%85%E5%AE%B9%EF%BC%8C%E4%BC%9A%E6%98%BE%E7%A4%BA%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%BA%95%E9%83%A8%E3%80%82">^1</a>支持！！</li>
+</ul>
+</li>
+<li><p><strong>代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line"> printf(&quot;hello word&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>printf(&quot;hello word&quot;)!;</code></p>
+</li>
+<li><p><strong>超链接</strong></p>
+<ul>
+<li>[本人博客]：<a target="_blank" rel="noopener" href="https://beckyksn-bit.github.io/">https://beckyksn-bit.github.io/</a></li>
+</ul>
+</li>
+<li><p><strong>图片</strong></p>
+<ul>
+<li>在图床网站上传图片并生成符合markdown语法的图片代码<br> [路过图床]:  <a target="_blank" rel="noopener" href="https://imgse.com/">https://imgse.com/</a></li>
+<li>图片对应的markdown代码<br>eg:<a target="_blank" rel="noopener" href="https://imgchr.com/i/pZvss1A"><img src="https://s41.ax1x.com/2026/02/24/pZvss1A.jpg" alt="pZvss1A.jpg"></a></li>
+<li>图片对应的html代码：</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/pZvss1A"><img src="https://s41.ax1x.com/2026/02/24/pZvss1A.jpg" alt="pZvss1A.jpg" border="0"/></a></p>
+<ul>
+<li>使用html语言实现调整图片大小和位置：</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/pZvss1A"><div align=center><img src="https://s41.ax1x.com/2026/02/24/pZvss1A.jpg" alt="pZvss1A.jpg" border="0" width="50%"/></a></p>
+</li>
+</ol>
+<h3 id="三、-其他操作"><a href="#三、-其他操作" class="headerlink" title="三、 其他操作"></a>三、 其他操作</h3><ul>
+<li><strong>插入latex公式</strong><ul>
+<li>行内显示公式:$f(x)&#x3D;ax+b$</li>
+<li>块内显示数学表达式<br> $$<br> \begin{Bmatrix}<br> a &amp; b \<br> c &amp; d<br> \end{Bmatrix}<br> $$</li>
+</ul>
+</li>
+<li><strong>html&#x2F;CSS语法</strong><ul>
+<li>markdown:内容→html:结构→CSS:外观</li>
+<li>使用html语法改图片边界等。</li>
+<li>ctrl+shift+p搜索”Markdown Preview Enchanced:Customize CSS”在style中使用css语法改标题格式等。</li>
+</ul>
+</li>
+<li><strong>个性化设置</strong><br>File-Preferences-Setting</li>
+</ul>
+<h3 id="四、导出为pdf文档"><a href="#四、导出为pdf文档" class="headerlink" title="四、导出为pdf文档"></a>四、导出为pdf文档</h3><ul>
+<li>使用MarkdownPDF(不推荐)</li>
+<li>Open in Browser-手动另存为PDF文档</li>
+</ul>
+<p>  [博客]：<a target="_blank" rel="noopener" href="https://beckyksn-bit.github.io/">https://beckyksn-bit.github.io/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/24/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/md%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/" data-id="cuidxIaWPuzhJ6aRvTUZFe5Gj" data-title="md文件格式" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog%E6%A0%BC%E5%BC%8F/" rel="tag">blog格式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-LQcode/10exti_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/02/21/LQcode/10exti_user/" class="article-date">
@@ -581,54 +765,6 @@ temp_old=temp;
 
 
   
-    <article id="post-LQcode/07lcd_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/12/LQcode/07lcd_user/" class="article-date">
-  <time class="dt-published" datetime="2026-02-12T02:00:00.000Z" itemprop="datePublished">2026-02-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/12/LQcode/07lcd_user/">lcd_user.h</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>#include “lcd_user.h”<br>#include “lcd.h”<br>#include “stdio.h”<br>#include “stdrag.h”</p>
-<p>void LcdSprintf(uint8_t Line,char <em>format,…)<br>{<br>  char String[21];<br>  va_list arg;<br>  va_start(arg,format);<br>  va_vsprintf(String,format,arg);<br>  va_end(arg);<br>  LCD_DisplayStringLine(Line,(u8</em>)String);<br>}</p>
-<p>void lcd_proc()<br>{<br>  LcdSprintf(Line0,”test LCD APP”);<br>}</p>
-<p>&#x2F;*<br>	main函数中<br>  LCD_Init();<br>	LCD_Clear(Black);<br>	LCD_SetTextColor(White);<br>	LCD_SetBackColor(Black);<br>*&#x2F;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/07lcd_user/" data-id="cuidfgCikTEhXJ-1MLqlmeU0G" data-title="lcd_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -686,6 +822,10 @@ temp_old=temp;
       <ul>
         
           <li>
+            <a href="/2026/02/24/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/md%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/">md文件格式</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/21/LQcode/10exti_user/">exti_user.h</a>
           </li>
         
@@ -699,10 +839,6 @@ temp_old=temp;
         
           <li>
             <a href="/2026/02/21/LQcode/12tim_user/">iic_user.h</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%9F%A5%E8%AF%86/">辅助工具理论</a>
           </li>
         
       </ul>
