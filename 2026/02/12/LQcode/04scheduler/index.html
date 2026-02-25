@@ -6,15 +6,15 @@
   
   <title>scheduler.h | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="#include “scheduler.h” typedef struct{  void (task_func*)(void);  uint32_t rate_ms;  uint32_t last_run;}task_t; static task_t task_scheduler[]&#x3D;       &#x2F;&#x2F;static修饰函数全局数组、全局变量时，会将其作用域从所有.c文">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031#include &quot;scheduler.h&quot;typedef struct&#123;  void (task_func*)(void);  uint32_t rate_ms;  uint32_t last_run;&#125;task_t;static task_t tas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scheduler.h">
 <meta property="og:url" content="http://example.com/2026/02/12/LQcode/04scheduler/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#include “scheduler.h” typedef struct{  void (task_func*)(void);  uint32_t rate_ms;  uint32_t last_run;}task_t; static task_t task_scheduler[]&#x3D;       &#x2F;&#x2F;static修饰函数全局数组、全局变量时，会将其作用域从所有.c文">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031#include &quot;scheduler.h&quot;typedef struct&#123;  void (task_func*)(void);  uint32_t rate_ms;  uint32_t last_run;&#125;task_t;static task_t tas">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-02-12T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-15T00:24:17.245Z">
+<meta property="article:modified_time" content="2026-02-25T01:48:18.247Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="代码模板">
 <meta property="article:tag" content="蓝桥杯嵌入式">
@@ -101,18 +101,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>#include “scheduler.h”</p>
-<p>typedef struct{<br>  void (task_func*)(void);<br>  uint32_t rate_ms;<br>  uint32_t last_run;<br>}task_t;</p>
-<p>static task_t task_scheduler[]&#x3D;       &#x2F;&#x2F;static修饰函数全局数组、全局变量时，会将其作用域从所有.c文件,限制为仅当前.c文件可见                  &#x2F;&#x2F;static修饰局部变量时，变量值初始化一次<br>{</p>
-<p>}</p>
-<p>static uint8_t task_num;<br>scheduler_init(){<br>  task_num&#x3D;sizeof(task_scheduler)&#x2F;sizeof(task_t);<br>}</p>
-<p>sheduler_run(){<br>  for(uint8_t i&#x3D;0;i&lt;task_num;i++){<br>    uint32_t now_time&#x3D;HAL_GetTick();<br>    if(now_time&gt;&#x3D;task_scheduler[i].rate_ms+task_scheduler[i].last_run){<br>      task_scheduler[i].last_run&#x3D;uwTick;<br>      task_scheduler[i].task_func();<br>    }<br>  }<br>}</p>
-<p>&#x2F;*main函数中：<br>sheduler_init();<br>*&#x2F;</p>
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;scheduler.h&quot;</span><br><span class="line"></span><br><span class="line">typedef struct&#123;</span><br><span class="line">  void (task_func*)(void);</span><br><span class="line">  uint32_t rate_ms;</span><br><span class="line">  uint32_t last_run;</span><br><span class="line">&#125;task_t;</span><br><span class="line"></span><br><span class="line">static task_t task_scheduler[]=       //static修饰函数全局数组、全局变量时，会将其作用域从所有.c文件,限制为仅当前.c文件可见                  //static修饰局部变量时，变量值初始化一次</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static uint8_t task_num;</span><br><span class="line">scheduler_init()&#123;</span><br><span class="line">  task_num=sizeof(task_scheduler)/sizeof(task_t);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sheduler_run()&#123;</span><br><span class="line">  for(uint8_t i=0;i&lt;task_num;i++)&#123;</span><br><span class="line">    uint32_t now_time=HAL_GetTick();</span><br><span class="line">    if(now_time&gt;=task_scheduler[i].rate_ms+task_scheduler[i].last_run)&#123;</span><br><span class="line">      task_scheduler[i].last_run=uwTick;</span><br><span class="line">      task_scheduler[i].task_func();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*main函数中：</span><br><span class="line">sheduler_init();</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/04scheduler/" data-id="cuidFc98foGaU8L-6xYUE1ZNp" data-title="scheduler.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/12/LQcode/04scheduler/" data-id="cuidgusRdFWe5oHx46KeQMfVo" data-title="scheduler.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -124,19 +118,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2026/02/12/LQcode/03system/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2026/02/12/LQcode/02bsp_system/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          system.h
+          bsp_system.h
         
       </div>
     </a>
   
   
-    <a href="/2026/02/12/LQcode/06key_user/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2026/02/12/LQcode/05led_user/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">key_user.h</div>
+      <div class="article-nav-title">led_user.h</div>
     </a>
   
 </nav>
@@ -199,6 +193,10 @@
           </li>
         
           <li>
+            <a href="/2026/02/21/LQcode/10exti_user/">exti_user.h</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/21/LQcode/11iic_user/">iic_user.h</a>
           </li>
         
@@ -208,10 +206,6 @@
         
           <li>
             <a href="/2026/02/21/LQcode/13rtc_user/">rtc_user.h</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/21/LQcode/10exti_user/">exti_user.h</a>
           </li>
         
       </ul>

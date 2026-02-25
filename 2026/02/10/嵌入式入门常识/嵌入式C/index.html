@@ -14,7 +14,7 @@
 <meta property="og:description" content="sprintf的作用sprintf是 C 语言标准库（&lt;stdio.h&gt;）中的格式化字符串函数核心功能是把变量（int&#x2F;float&#x2F;char 等），按指定格式转换成字符串，并写入到字符数组（缓冲区）中。也叫做拼接变量。例如：  sprintf(buf, “ADC值：%d，电压：%.2fV”, adc_val, volt);    &#x2F;&#x2F; 此时buf">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-02-10T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-13T13:17:14.459Z">
+<meta property="article:modified_time" content="2026-02-25T01:48:03.157Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Driver">
 <meta property="article:tag" content="嵌入式代码基础知识">
@@ -103,7 +103,8 @@
       
         <p>sprintf的作用<br>sprintf是 C 语言标准库（&lt;stdio.h&gt;）中的格式化字符串函数<br>核心功能是把变量（int&#x2F;float&#x2F;char 等），按指定格式转换成字符串，并写入到字符数组（缓冲区）中。也叫做拼接变量。<br>例如：  sprintf(buf, “ADC值：%d，电压：%.2fV”, adc_val, volt);<br>    &#x2F;&#x2F; 此时buf中的内容是：”ADC值：2048，电压：1.65V”</p>
 <p>UART_TypeDef和UART_HandleType的区别<br>UART_TypeDef：UART 外设的寄存器映射结构体<br>UART_TypeDef 是 STM32 标准库 &#x2F; HAL 库中定义的寄存器地址映射结构体，每一个成员对应 UART 外设的一个物理寄存器（如 SR、DR、BRR 等），其首地址直接对应单片机内存中 UART 外设的硬件寄存器地址。<br>例如：<br>typedef struct {<br>  __IO uint32_t SR;   &#x2F;&#x2F; 状态寄存器<br>  __IO uint32_t DR;   &#x2F;&#x2F; 数据寄存器<br>  __IO uint32_t BRR;  &#x2F;&#x2F; 波特率寄存器<br>  __IO uint32_t CR1;  &#x2F;&#x2F; 控制寄存器1<br>  &#x2F;&#x2F; … 其他寄存器（CR2、CR3、GTPR等）<br>} UART_TypeDef;<br>&#x2F;&#x2F; 预定义：将结构体映射到实际硬件寄存器地址（如USART1基地址0x40013800）<br>#define USART1 ((UART_TypeDef *)0x40013800U)<br>#define USART2 ((UART_TypeDef *)0x40004400U)&#x2F;&#x2F;USART1、USART2是指向某特定串口硬件的地址</p>
-<p>UART_HandleTypeDef：HAL 库的 UART 操作句柄<br>UART_HandleTypeDef包含了指向 UART_TypeDef 的指针（Instance），还封装了 UART 的配置参数、运行状态、回调函数等。<br>标准定义（HAL 库 stm32g4xx_hal_uart.h 中）：<br>typedef struct __UART_HandleTypeDef {<br>  UART_TypeDef* Instance;        &#x2F;&#x2F; 指向UART寄存器结构体的指针（核心关联）<br>  UART_InitTypeDef Init;         &#x2F;&#x2F; UART配置参数（波特率、数据位、停止位等）<br>  uint8_t* pTxBuffPtr;           &#x2F;&#x2F; 发送缓冲区指针<br>  uint16_t TxXferSize;           &#x2F;&#x2F; 发送数据长度<br>  …<br>} UART_HandleTypeDef;<br>其中huart1.Instance&#x3D;USART1;</p>
+<p>UART_HandleTypeDef：HAL 库的 UART 操作句柄<br>UART_HandleTypeDef包含了指向 UART_TypeDef 的指针（Instance），还封装了 UART 的配置参数、运行状态、回调函数等。<br>标准定义（HAL 库 stm32g4xx_hal_uart.h 中）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typedef struct __UART_HandleTypeDef &#123;</span><br><span class="line">  UART_TypeDef* Instance;        // 指向UART寄存器结构体的指针（核心关联）</span><br><span class="line">  UART_InitTypeDef Init;         // UART配置参数（波特率、数据位、停止位等）</span><br><span class="line">  uint8_t* pTxBuffPtr;           // 发送缓冲区指针</span><br><span class="line">  uint16_t TxXferSize;           // 发送数据长度</span><br><span class="line">  ...</span><br><span class="line">&#125; UART_HandleTypeDef;</span><br><span class="line">其中huart1.Instance=USART1;</span><br></pre></td></tr></table></figure>
 <p>uwTick介绍<br>uwTick&#x3D;HAL_IncTick(),即从系统启动到现在的时间（ms）；<br>基本单位：默认 1 毫秒（ms）&#x3D; 1000 微秒（μs）<br>数据类型：uint32_t（32 位无符号整数），最大值为 0xFFFFFFFF（约 49.7 天），溢出后会从 0 重新计数</p>
 <p>十六进制转二进制的核心规则（基础）<br>十六进制的每 1 位对应二进制的 4 位</p>
 <table>
@@ -171,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/" data-id="cuidGE3z9KaWQbh9vL7VmGa-J" data-title="嵌入式知识盲点合集" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/" data-id="cuidMG1UZ3YxGUwI2fT3H6RCF" data-title="嵌入式知识盲点合集" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -183,11 +184,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2026/02/12/LQcode/02bsp_system/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2026/02/12/LQcode/09adc_user/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          bsp_system.h
+          adc_user.h
         
       </div>
     </a>
@@ -258,6 +259,10 @@
           </li>
         
           <li>
+            <a href="/2026/02/21/LQcode/10exti_user/">exti_user.h</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/21/LQcode/11iic_user/">iic_user.h</a>
           </li>
         
@@ -267,10 +272,6 @@
         
           <li>
             <a href="/2026/02/21/LQcode/13rtc_user/">rtc_user.h</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/21/LQcode/10exti_user/">exti_user.h</a>
           </li>
         
       </ul>

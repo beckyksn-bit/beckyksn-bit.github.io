@@ -71,6 +71,94 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-LQcode/05led_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/12/LQcode/05led_user/" class="article-date">
+  <time class="dt-published" datetime="2026-02-12T02:00:00.000Z" itemprop="datePublished">2026-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/12/LQcode/05led_user/">led_user.h</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include&quot;led_user.h&quot;</span><br><span class="line"></span><br><span class="line">void led_disp(uint8_t *ucled)</span><br><span class="line">&#123;</span><br><span class="line">    uint8_t temp= 0x00;</span><br><span class="line">    static uint8_t temp_old=0xff;</span><br><span class="line"></span><br><span class="line">    for (uint8_t i=0; i&lt;8; i++)</span><br><span class="line">    &#123;</span><br><span class="line">      temp|=ucled[i]&lt;&lt;(7-i);</span><br><span class="line">    &#125;</span><br><span class="line">    if(temp!=temp_old)</span><br><span class="line">    &#123;</span><br><span class="line">    GPIOC-&gt;ODR&amp;= 0x00ff;</span><br><span class="line">    GPIOC-&gt;ODR|= ((~temp)&amp;0x00ff)&lt;&lt; 8;</span><br><span class="line">    GPIOD-&gt;BSRR= 0x01&lt;&lt; 2;</span><br><span class="line">    GPIOD-&gt;BRR= 0x01&lt;&lt; 2;</span><br><span class="line">    temp_old=temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">uint8_t ucled[8]=&#123;1,1,1,1,0,0,0,0&#125;;</span><br><span class="line"></span><br><span class="line">void led_proc()&#123;</span><br><span class="line">  led_disp(ucled);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">main函数中：</span><br><span class="line">system_init();//对GPIOC显示初始化</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/12/LQcode/05led_user/" data-id="cuidwvFLJfbRq_m6eOSHeLzSs" data-title="led_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LQcode/06key_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/12/LQcode/06key_user/" class="article-date">
+  <time class="dt-published" datetime="2026-02-12T02:00:00.000Z" itemprop="datePublished">2026-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/12/LQcode/06key_user/">key_user.h</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;key_user.h&quot;</span><br><span class="line"></span><br><span class="line">uint8_t key_val;</span><br><span class="line">uint8_t key_down;</span><br><span class="line">uint8_t key_up;</span><br><span class="line">uint8_t key_old;</span><br><span class="line"></span><br><span class="line">uint8_t key_read()</span><br><span class="line">&#123;</span><br><span class="line">  uint8_t temp=0;</span><br><span class="line">if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_1)==GPIO_PIN_RESET)</span><br><span class="line">&#123;</span><br><span class="line">   temp=1;</span><br><span class="line">&#125;</span><br><span class="line">if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_2)==GPIO_PIN_RESET)</span><br><span class="line">&#123;</span><br><span class="line">   temp=2;</span><br><span class="line">&#125;</span><br><span class="line">if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_3)==GPIO_PIN_RESET)</span><br><span class="line">&#123;</span><br><span class="line">   temp=3;</span><br><span class="line">&#125;</span><br><span class="line">if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_4)==GPIO_PIN_RESET)</span><br><span class="line">&#123;</span><br><span class="line">   temp=4;</span><br><span class="line">&#125;</span><br><span class="line">return temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void key_proc()</span><br><span class="line">&#123;</span><br><span class="line">    key_val=key_read();                   //PB2按下瞬间及保持=2，松开=0</span><br><span class="line">    key_down=key_val&amp;(key_val^key_old);   //2=2&amp;（2^0）  0^x=x;</span><br><span class="line">    key_up=~(key_val)&amp;(key_val^key_old);  //2=~0&amp;（0^2）=0xff &amp; 2</span><br><span class="line">    key_old=key_val;</span><br><span class="line"></span><br><span class="line">    if(key_down!=0)</span><br><span class="line">		ucled[key_down-1]^=1;							//对应的led电平翻转</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/12/LQcode/06key_user/" data-id="cuid06gu6B6TsPfMFq6H2pH0z" data-title="key_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-LQcode/07lcd_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/02/12/LQcode/07lcd_user/" class="article-date">
@@ -97,15 +185,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>#include “lcd_user.h”<br>#include “lcd.h”<br>#include “stdio.h”<br>#include “stdrag.h”</p>
-<p>void LcdSprintf(uint8_t Line,char <em>format,…)<br>{<br>  char String[21];<br>  va_list arg;<br>  va_start(arg,format);<br>  va_vsprintf(String,format,arg);<br>  va_end(arg);<br>  LCD_DisplayStringLine(Line,(u8</em>)String);<br>}</p>
-<p>void lcd_proc()<br>{<br>  LcdSprintf(Line0,”test LCD APP”);<br>}</p>
-<p>&#x2F;*<br>	main函数中<br>  LCD_Init();<br>	LCD_Clear(Black);<br>	LCD_SetTextColor(White);<br>	LCD_SetBackColor(Black);<br>*&#x2F;</p>
-
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;lcd_user.h&quot;</span><br><span class="line">#include &quot;lcd.h&quot;</span><br><span class="line">#include &quot;stdio.h&quot;</span><br><span class="line">#include &quot;stdrag.h&quot;</span><br><span class="line"></span><br><span class="line">void LcdSprintf(uint8_t Line,char *format,...)</span><br><span class="line">&#123;</span><br><span class="line">  char String[21];</span><br><span class="line">  va_list arg;</span><br><span class="line">  va_start(arg,format);</span><br><span class="line">  va_vsprintf(String,format,arg);</span><br><span class="line">  va_end(arg);</span><br><span class="line">  LCD_DisplayStringLine(Line,(u8*)String);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void lcd_proc()</span><br><span class="line">&#123;</span><br><span class="line">  LcdSprintf(Line0,&quot;test LCD APP&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">	main函数中</span><br><span class="line">  LCD_Init();</span><br><span class="line">	LCD_Clear(Black);</span><br><span class="line">	LCD_SetTextColor(White);</span><br><span class="line">	LCD_SetBackColor(Black);</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/07lcd_user/" data-id="cuidt5tRHNN_wLMg2oIOJUfuM" data-title="lcd_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/12/LQcode/07lcd_user/" data-id="cuidWSf2ipI8Ansy_9HuFJ3uq" data-title="lcd_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -145,16 +229,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>typedef __EILE FILE<br>int putc(int ch,FILE <em>fp)<br>{<br>  HAL_UART_Transmit(&amp;huart1,(uint8_t</em>)&amp;ch,1,10);<br>  return ch;<br>}</p>
-<p>uint32_t uart_rx_tick&#x3D;0;<br>uint16_t uart_rx_index&#x3D;0;<br>uint8_t  uart_rx_buffer[128]&#x3D;{0};</p>
-<p>HAL_UART_CpltCallBack(UART_HandleTypeDef *huart)<br>{<br>  if(huart-&gt;Instance&#x3D;&#x3D;USART1)<br>  {<br>    uart_rx_tick&#x3D;uwTick;<br>    uart_rx_index++;<br>    HAL_UART_Receive_IT(&amp;huart1,&amp;uart_rx_buffer[index],1);<br>  }<br>}</p>
-<p>void uart_proc(void)<br>{<br>  if(uart_rx_index&#x3D;&#x3D;0) return 0;<br>  if(uart_rx_tick-uwTick&gt;100)<br>  {<br>    printf(“UART reveive data is %s&#x2F;n”,uart_rx_buffer);<br>    LcdSprintf(Line1,”uart test successfully”);<br>    uart_rx_indLine1,”uart test successfully”ex&#x3D;0;<br>    memset(uart_rx_buffer,0,uart_rx_index);<br>    &#x2F;&#x2F;huart1.pRxBuffPtr&#x3D;uart_rx_buffer;<br>  }<br>}</p>
-<p>&#x2F;*main函数中：<br>HAL_UART_Receive_IT(&amp;huart1,&amp;uart_rx_buffer[index],1);<br>*&#x2F;</p>
-
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">typedef __EILE FILE</span><br><span class="line">int putc(int ch,FILE *fp)</span><br><span class="line">&#123;</span><br><span class="line">  HAL_UART_Transmit(&amp;huart1,(uint8_t*)&amp;ch,1,10);</span><br><span class="line">  return ch;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">uint32_t uart_rx_tick=0;</span><br><span class="line">uint16_t uart_rx_index=0;</span><br><span class="line">uint8_t  uart_rx_buffer[128]=&#123;0&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HAL_UART_CpltCallBack(UART_HandleTypeDef *huart)</span><br><span class="line">&#123;</span><br><span class="line">  if(huart-&gt;Instance==USART1)</span><br><span class="line">  &#123;</span><br><span class="line">    uart_rx_tick=uwTick;</span><br><span class="line">    uart_rx_index++;</span><br><span class="line">    HAL_UART_Receive_IT(&amp;huart1,&amp;uart_rx_buffer[index],1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void uart_proc(void)</span><br><span class="line">&#123;</span><br><span class="line">  if(uart_rx_index==0) return 0;</span><br><span class="line">  if(uart_rx_tick-uwTick&gt;100)</span><br><span class="line">  &#123;</span><br><span class="line">    printf(&quot;UART reveive data is %s/n&quot;,uart_rx_buffer);</span><br><span class="line">    LcdSprintf(Line1,&quot;uart test successfully&quot;);</span><br><span class="line">    uart_rx_indLine1,&quot;uart test successfully&quot;ex=0;</span><br><span class="line">    memset(uart_rx_buffer,0,uart_rx_index);</span><br><span class="line">    //huart1.pRxBuffPtr=uart_rx_buffer;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*main函数中：</span><br><span class="line">HAL_UART_Receive_IT(&amp;huart1,&amp;uart_rx_buffer[index],1);</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/08uart_user/" data-id="cuidO6YjjtFXxh7QiTiGTDILn" data-title="uart_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/12/LQcode/08uart_user/" data-id="cuidAkYVto2_lnNogP1GLgH-n" data-title="uart_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -194,128 +273,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>#include “adc_user.h”<br>#include “adc_user.h”<br>#include “adc_user.h”</p>
-<p>uint32_t dma_buff[2][30];<br>float adc_value[2];</p>
-<p>void adc_proc(void)<br>{<br>  for(int i&#x3D;0;i&lt;30;i++)<br>{<br>  adc_value[0]+&#x3D;dma_buff[0][i];<br>  adc_value[1]+&#x3D;dma_buff[1][i];<br>}<br>  adc_value[0]&#x3D;adc_value[0]&#x2F;30<em>3.3f&#x2F;4095;<br>  adc_value[1]&#x3D;adc_value[1]&#x2F;30</em>3.3f&#x2F;4095; </p>
-<p>  LcdSprintf(Line2,”adc_value[0]为%.2f”,adc_value[0]);<br>  LcdSprintf(Line3,”adc_value[1]为%.2f”,adc_value[1]);<br>}</p>
-<p>&#x2F;*<br>main函数中：<br>	HAL_ADC_Start_DMA(&amp;hadc1,&amp;dma_buff[0][0],30);<br>	HAL_ADC_Start_DMA(&amp;hadc2,&amp;dma_buff[1][0],30);<br>*&#x2F;</p>
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;adc_user.h&quot;</span><br><span class="line">#include &quot;adc_user.h&quot;</span><br><span class="line">#include &quot;adc_user.h&quot;</span><br><span class="line"></span><br><span class="line">uint32_t dma_buff[2][30];</span><br><span class="line">float adc_value[2];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void adc_proc(void)</span><br><span class="line">&#123;</span><br><span class="line">  for(int i=0;i&lt;30;i++)</span><br><span class="line">&#123;</span><br><span class="line">  adc_value[0]+=dma_buff[0][i];</span><br><span class="line">  adc_value[1]+=dma_buff[1][i];</span><br><span class="line">&#125;</span><br><span class="line">  adc_value[0]=adc_value[0]/30*3.3f/4095;</span><br><span class="line">  adc_value[1]=adc_value[1]/30*3.3f/4095; </span><br><span class="line"></span><br><span class="line">  LcdSprintf(Line2,&quot;adc_value[0]为%.2f&quot;,adc_value[0]);</span><br><span class="line">  LcdSprintf(Line3,&quot;adc_value[1]为%.2f&quot;,adc_value[1]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">main函数中：</span><br><span class="line">	HAL_ADC_Start_DMA(&amp;hadc1,&amp;dma_buff[0][0],30);</span><br><span class="line">	HAL_ADC_Start_DMA(&amp;hadc2,&amp;dma_buff[1][0],30);</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/09adc_user/" data-id="cuid_VTp9PlQ5UWEtpQplnXiu" data-title="adc_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-LQcode/05led_user" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/12/LQcode/05led_user/" class="article-date">
-  <time class="dt-published" datetime="2026-02-12T02:00:00.000Z" itemprop="datePublished">2026-02-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/12/LQcode/05led_user/">led_user.h</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>#include”led_user.h”</p>
-<p>void led_disp(uint8_t *ucled)<br>{<br>    uint8_t temp&#x3D; 0x00;<br>    static uint8_t temp_old&#x3D;0xff;</p>
-<pre><code>for (uint8_t i=0; i&lt;8; i++)
-{
-  temp|=ucled[i]&lt;&lt;(7-i);
-}
-if(temp!=temp_old)
-{
-GPIOC-&gt;ODR&amp;= 0x00ff;
-GPIOC-&gt;ODR|= ((~temp)&amp;0x00ff)&lt;&lt; 8;
-GPIOD-&gt;BSRR= 0x01&lt;&lt; 2;
-GPIOD-&gt;BRR= 0x01&lt;&lt; 2;
-temp_old=temp;
-}
-</code></pre>
-<p>}</p>
-<p>uint8_t ucled[8]&#x3D;{1,1,1,1,0,0,0,0};</p>
-<p>void led_proc(){<br>  led_disp(ucled);<br>}</p>
-<p>&#x2F;*<br>main函数中：<br>system_init();&#x2F;&#x2F;对GPIOC显示初始化<br>*&#x2F;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/05led_user/" data-id="cuidHNlTCqKScLdayUmtCzdx1" data-title="led_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF/" rel="tag">代码模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">蓝桥杯嵌入式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-LQcode/02bsp_system" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/12/LQcode/02bsp_system/" class="article-date">
-  <time class="dt-published" datetime="2026-02-12T02:00:00.000Z" itemprop="datePublished">2026-02-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/12/LQcode/02bsp_system/">bsp_system.h</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>#ifndef __BSP_SYSTEM_H<br>#define __BSP_SYSTEM_H         &#x2F;&#x2F;编译头格式 __大写名字_H</p>
-<p>#include “main.h”              &#x2F;&#x2F;相互调用的.h文件合集<br>#include “system.h”<br>#include “sheduler.h”</p>
-<p>#include “led_user.h”<br>#include “key_user.h”<br>#include “lcd.h”<br>#include “lcd_user.h”<br>#include “uart_user.h”<br>#include “adc_user.h”</p>
-<p>extern uint8_t ucled[8];       &#x2F;&#x2F;所有格文件调用的变量、结构体、数组<br>extern uint16_t uart_rx_index;<br>extern uint32_t uart_rx_ticks;<br>extern uint8_t uart_rx_buffer[128];<br>extern uint32_t dma_buff[2][30];<br>extern float adc_value[2];</p>
-<p>#endif</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/02bsp_system/" data-id="cuidM4MswTn775xjn3y2YC4hQ" data-title="bsp_system.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/12/LQcode/09adc_user/" data-id="cuidrlKt9QiWtx7paPMNUKj5p" data-title="adc_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -357,7 +320,8 @@ temp_old=temp;
       
         <p>sprintf的作用<br>sprintf是 C 语言标准库（&lt;stdio.h&gt;）中的格式化字符串函数<br>核心功能是把变量（int&#x2F;float&#x2F;char 等），按指定格式转换成字符串，并写入到字符数组（缓冲区）中。也叫做拼接变量。<br>例如：  sprintf(buf, “ADC值：%d，电压：%.2fV”, adc_val, volt);<br>    &#x2F;&#x2F; 此时buf中的内容是：”ADC值：2048，电压：1.65V”</p>
 <p>UART_TypeDef和UART_HandleType的区别<br>UART_TypeDef：UART 外设的寄存器映射结构体<br>UART_TypeDef 是 STM32 标准库 &#x2F; HAL 库中定义的寄存器地址映射结构体，每一个成员对应 UART 外设的一个物理寄存器（如 SR、DR、BRR 等），其首地址直接对应单片机内存中 UART 外设的硬件寄存器地址。<br>例如：<br>typedef struct {<br>  __IO uint32_t SR;   &#x2F;&#x2F; 状态寄存器<br>  __IO uint32_t DR;   &#x2F;&#x2F; 数据寄存器<br>  __IO uint32_t BRR;  &#x2F;&#x2F; 波特率寄存器<br>  __IO uint32_t CR1;  &#x2F;&#x2F; 控制寄存器1<br>  &#x2F;&#x2F; … 其他寄存器（CR2、CR3、GTPR等）<br>} UART_TypeDef;<br>&#x2F;&#x2F; 预定义：将结构体映射到实际硬件寄存器地址（如USART1基地址0x40013800）<br>#define USART1 ((UART_TypeDef *)0x40013800U)<br>#define USART2 ((UART_TypeDef *)0x40004400U)&#x2F;&#x2F;USART1、USART2是指向某特定串口硬件的地址</p>
-<p>UART_HandleTypeDef：HAL 库的 UART 操作句柄<br>UART_HandleTypeDef包含了指向 UART_TypeDef 的指针（Instance），还封装了 UART 的配置参数、运行状态、回调函数等。<br>标准定义（HAL 库 stm32g4xx_hal_uart.h 中）：<br>typedef struct __UART_HandleTypeDef {<br>  UART_TypeDef* Instance;        &#x2F;&#x2F; 指向UART寄存器结构体的指针（核心关联）<br>  UART_InitTypeDef Init;         &#x2F;&#x2F; UART配置参数（波特率、数据位、停止位等）<br>  uint8_t* pTxBuffPtr;           &#x2F;&#x2F; 发送缓冲区指针<br>  uint16_t TxXferSize;           &#x2F;&#x2F; 发送数据长度<br>  …<br>} UART_HandleTypeDef;<br>其中huart1.Instance&#x3D;USART1;</p>
+<p>UART_HandleTypeDef：HAL 库的 UART 操作句柄<br>UART_HandleTypeDef包含了指向 UART_TypeDef 的指针（Instance），还封装了 UART 的配置参数、运行状态、回调函数等。<br>标准定义（HAL 库 stm32g4xx_hal_uart.h 中）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typedef struct __UART_HandleTypeDef &#123;</span><br><span class="line">  UART_TypeDef* Instance;        // 指向UART寄存器结构体的指针（核心关联）</span><br><span class="line">  UART_InitTypeDef Init;         // UART配置参数（波特率、数据位、停止位等）</span><br><span class="line">  uint8_t* pTxBuffPtr;           // 发送缓冲区指针</span><br><span class="line">  uint16_t TxXferSize;           // 发送数据长度</span><br><span class="line">  ...</span><br><span class="line">&#125; UART_HandleTypeDef;</span><br><span class="line">其中huart1.Instance=USART1;</span><br></pre></td></tr></table></figure>
 <p>uwTick介绍<br>uwTick&#x3D;HAL_IncTick(),即从系统启动到现在的时间（ms）；<br>基本单位：默认 1 毫秒（ms）&#x3D; 1000 微秒（μs）<br>数据类型：uint32_t（32 位无符号整数），最大值为 0xFFFFFFFF（约 49.7 天），溢出后会从 0 重新计数</p>
 <p>十六进制转二进制的核心规则（基础）<br>十六进制的每 1 位对应二进制的 4 位</p>
 <table>
@@ -425,7 +389,7 @@ temp_old=temp;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/" data-id="cuidGE3z9KaWQbh9vL7VmGa-J" data-title="嵌入式知识盲点合集" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/" data-id="cuidMG1UZ3YxGUwI2fT3H6RCF" data-title="嵌入式知识盲点合集" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -474,11 +438,57 @@ temp_old=temp;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/nomenclature/" data-id="cuiduox0CB29bDxRAtyNucwxR" data-title="编程语言中的命名规则" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/nomenclature/" data-id="cuidQ0DfKlIaRiWmAmrBfEz8d" data-title="编程语言中的命名规则" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/" rel="tag">命名规则</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-嵌入式入门常识/comBasic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/" class="article-date">
+  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">2026-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/">计算机硬件基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/d5a44d3ca1962f71c05e1546cd331448.jpg" alt="alt text"><br>缓存：位于CPU内部，（L1、L2、L3）存储速度最快，协助CPU处理数据<br>内存：也叫memory，位于CPU外部，存储速度次之，协助CPU处理数据<br>硬盘：长期存储系统，软件，文件（断电不丢失）</p>
+<p>RAM：缓存SRAM(静态RAM),内存DRAM（动态RAM，充放电擦除所以慢一点）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/" data-id="cuidcdj22AlnViqw-ypKWLlGe" data-title="计算机硬件基础" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
     </footer>
   </div>
@@ -551,7 +561,7 @@ temp_old=temp;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/periTheory/" data-id="cuidL1OCeDqhA5nVYwg-8MzpB" data-title="单片机寄存器" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/periTheory/" data-id="cuidTLN3DBxK03pS3MOk0FFh1" data-title="单片机寄存器" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -595,57 +605,11 @@ temp_old=temp;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/" data-id="cuidtNNmNOGl_QL6Rb1_Q9YNv" data-title="文件开头" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/08/%E5%8D%9A%E5%AE%A2%E6%92%B0%E5%86%99%E6%8C%87%E5%8D%97/small%20how/" data-id="cuidmp3aHZCp3eYiYtjDWkFQt" data-title="文件开头" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog%E6%A0%BC%E5%BC%8F/" rel="tag">blog格式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-嵌入式入门常识/comBasic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/" class="article-date">
-  <time class="dt-published" datetime="2026-02-08T02:00:00.000Z" itemprop="datePublished">2026-02-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/">计算机硬件基础</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/d5a44d3ca1962f71c05e1546cd331448.jpg" alt="alt text"><br>缓存：位于CPU内部，（L1、L2、L3）存储速度最快，协助CPU处理数据<br>内存：也叫memory，位于CPU外部，存储速度次之，协助CPU处理数据<br>硬盘：长期存储系统，软件，文件（断电不丢失）</p>
-<p>RAM：缓存SRAM(静态RAM),内存DRAM（动态RAM，充放电擦除所以慢一点）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/comBasic/" data-id="cuid2aKIDg73aFrl0HXbisd0l" data-title="计算机硬件基础" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Driver/" rel="tag">Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
     </footer>
   </div>
@@ -716,6 +680,10 @@ temp_old=temp;
           </li>
         
           <li>
+            <a href="/2026/02/21/LQcode/10exti_user/">exti_user.h</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/21/LQcode/11iic_user/">iic_user.h</a>
           </li>
         
@@ -725,10 +693,6 @@ temp_old=temp;
         
           <li>
             <a href="/2026/02/21/LQcode/13rtc_user/">rtc_user.h</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/21/LQcode/10exti_user/">exti_user.h</a>
           </li>
         
       </ul>

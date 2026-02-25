@@ -6,15 +6,15 @@
   
   <title>adc_user.h | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="#include “adc_user.h”#include “adc_user.h”#include “adc_user.h” uint32_t dma_buff[2][30];float adc_value[2]; void adc_proc(void){  for(int i&#x3D;0;i&lt;30;i++){  adc_value[0]+&#x3D;dma_buff[0][i];  a">
+  <meta name="description" content="123456789101112131415161718192021222324252627#include &quot;adc_user.h&quot;#include &quot;adc_user.h&quot;#include &quot;adc_user.h&quot;uint32_t dma_buff[2][30];float adc_value[2];void adc_proc(void">
 <meta property="og:type" content="article">
 <meta property="og:title" content="adc_user.h">
 <meta property="og:url" content="http://example.com/2026/02/12/LQcode/09adc_user/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#include “adc_user.h”#include “adc_user.h”#include “adc_user.h” uint32_t dma_buff[2][30];float adc_value[2]; void adc_proc(void){  for(int i&#x3D;0;i&lt;30;i++){  adc_value[0]+&#x3D;dma_buff[0][i];  a">
+<meta property="og:description" content="123456789101112131415161718192021222324252627#include &quot;adc_user.h&quot;#include &quot;adc_user.h&quot;#include &quot;adc_user.h&quot;uint32_t dma_buff[2][30];float adc_value[2];void adc_proc(void">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-02-12T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-15T01:45:32.841Z">
+<meta property="article:modified_time" content="2026-02-25T01:48:18.247Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="代码模板">
 <meta property="article:tag" content="蓝桥杯嵌入式">
@@ -101,16 +101,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>#include “adc_user.h”<br>#include “adc_user.h”<br>#include “adc_user.h”</p>
-<p>uint32_t dma_buff[2][30];<br>float adc_value[2];</p>
-<p>void adc_proc(void)<br>{<br>  for(int i&#x3D;0;i&lt;30;i++)<br>{<br>  adc_value[0]+&#x3D;dma_buff[0][i];<br>  adc_value[1]+&#x3D;dma_buff[1][i];<br>}<br>  adc_value[0]&#x3D;adc_value[0]&#x2F;30<em>3.3f&#x2F;4095;<br>  adc_value[1]&#x3D;adc_value[1]&#x2F;30</em>3.3f&#x2F;4095; </p>
-<p>  LcdSprintf(Line2,”adc_value[0]为%.2f”,adc_value[0]);<br>  LcdSprintf(Line3,”adc_value[1]为%.2f”,adc_value[1]);<br>}</p>
-<p>&#x2F;*<br>main函数中：<br>	HAL_ADC_Start_DMA(&amp;hadc1,&amp;dma_buff[0][0],30);<br>	HAL_ADC_Start_DMA(&amp;hadc2,&amp;dma_buff[1][0],30);<br>*&#x2F;</p>
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;adc_user.h&quot;</span><br><span class="line">#include &quot;adc_user.h&quot;</span><br><span class="line">#include &quot;adc_user.h&quot;</span><br><span class="line"></span><br><span class="line">uint32_t dma_buff[2][30];</span><br><span class="line">float adc_value[2];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void adc_proc(void)</span><br><span class="line">&#123;</span><br><span class="line">  for(int i=0;i&lt;30;i++)</span><br><span class="line">&#123;</span><br><span class="line">  adc_value[0]+=dma_buff[0][i];</span><br><span class="line">  adc_value[1]+=dma_buff[1][i];</span><br><span class="line">&#125;</span><br><span class="line">  adc_value[0]=adc_value[0]/30*3.3f/4095;</span><br><span class="line">  adc_value[1]=adc_value[1]/30*3.3f/4095; </span><br><span class="line"></span><br><span class="line">  LcdSprintf(Line2,&quot;adc_value[0]为%.2f&quot;,adc_value[0]);</span><br><span class="line">  LcdSprintf(Line3,&quot;adc_value[1]为%.2f&quot;,adc_value[1]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">main函数中：</span><br><span class="line">	HAL_ADC_Start_DMA(&amp;hadc1,&amp;dma_buff[0][0],30);</span><br><span class="line">	HAL_ADC_Start_DMA(&amp;hadc2,&amp;dma_buff[1][0],30);</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/12/LQcode/09adc_user/" data-id="cuid_VTp9PlQ5UWEtpQplnXiu" data-title="adc_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/12/LQcode/09adc_user/" data-id="cuidrlKt9QiWtx7paPMNUKj5p" data-title="adc_user.h" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -132,9 +128,9 @@
     </a>
   
   
-    <a href="/2026/02/12/LQcode/05led_user/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2026/02/10/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%85%A5%E9%97%A8%E5%B8%B8%E8%AF%86/%E5%B5%8C%E5%85%A5%E5%BC%8FC/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">led_user.h</div>
+      <div class="article-nav-title">嵌入式知识盲点合集</div>
     </a>
   
 </nav>
@@ -197,6 +193,10 @@
           </li>
         
           <li>
+            <a href="/2026/02/21/LQcode/10exti_user/">exti_user.h</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/21/LQcode/11iic_user/">iic_user.h</a>
           </li>
         
@@ -206,10 +206,6 @@
         
           <li>
             <a href="/2026/02/21/LQcode/13rtc_user/">rtc_user.h</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/21/LQcode/10exti_user/">exti_user.h</a>
           </li>
         
       </ul>
